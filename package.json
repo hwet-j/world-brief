@@ -1,0 +1,11 @@
+{
+  "name": "world-brief",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build-index": "node scripts/build-index.mjs",
+    "test": "node --test scripts/tests/validate.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
