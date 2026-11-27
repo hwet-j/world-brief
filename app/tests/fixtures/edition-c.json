@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-27-pm",
+  "date": "2026-11-27",
+  "slot": "pm",
+  "generatedAt": "2026-11-27T18:30:00+09:00",
+  "title": "[예시] 11월 27일 저녁 브리핑",
+  "headline": [
+    "[예시] 저녁 이슈 하나",
+    "[예시] 저녁 이슈 둘",
+    "[예시] 저녁 이슈 셋"
+  ],
+  "regions": [
+    {
+      "code": "KR",
+      "name": "대한민국",
+      "flag": "🇰🇷",
+      "summary": "[예시] 국내 저녁 요약",
+      "items": [
+        {
+          "id": "kr-1",
+          "topic": "economy",
+          "title": "[예시] 반도체 수출 후속 분석",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 3,
+          "confidence": "high",
+          "tags": [
+            "반도체"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/kr-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/kr-1-b",
+              "lang": "ko"
+            }
+          ],
+          "isUpdate": true
+        },
+        {
+          "id": "kr-2",
+          "topic": "society",
+          "title": "[예시] 가상의 생활 소식",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 1,
+          "confidence": "medium",
+          "tags": [
+            "복지"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/kr-2-a",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "name": "미국",
+      "flag": "🇺🇸",
+      "summary": "[예시] 미국 저녁 요약",
+      "items": [
+        {
+          "id": "us-1",
+          "topic": "economy",
+          "title": "[예시] 가상의 고용 지표",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 2,
+          "confidence": "high",
+          "tags": [
+            "고용"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/us-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/us-1-b",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "JP",
+      "name": "일본",
+      "flag": "🇯🇵",
+      "summary": "[예시] 일본 저녁 요약",
+      "items": [
+        {
+          "id": "jp-1",
+          "topic": "politics",
+          "title": "[예시] 가상의 내각 발표",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 2,
+          "confidence": "high",
+          "tags": [
+            "내각"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/jp-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/jp-1-b",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

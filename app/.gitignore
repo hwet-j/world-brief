@@ -1,0 +1,17 @@
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+/android/
+/ios/
+.kotlin/
+*.jks
+*.keystore
+.env
+.env.local
+npm-debug.*
+.metro-health-check*
+.DS_Store
+__pycache__/
+*.pyc

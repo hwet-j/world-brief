@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-27-am",
+  "date": "2026-11-27",
+  "slot": "am",
+  "generatedAt": "2026-11-27T07:15:00+09:00",
+  "title": "[예시] 11월 27일 아침 브리핑",
+  "headline": [
+    "[예시] 반도체 이슈 후속",
+    "[예시] 가상의 외교 일정",
+    "[예시] 가상의 기후 회의"
+  ],
+  "regions": [
+    {
+      "code": "KR",
+      "name": "대한민국",
+      "flag": "🇰🇷",
+      "summary": "[예시] 국내 분위기 요약",
+      "items": [
+        {
+          "id": "kr-1",
+          "topic": "economy",
+          "title": "[예시] 반도체 수출 후속 분석",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 3,
+          "confidence": "high",
+          "tags": [
+            "반도체",
+            "수출"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/kr-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/kr-1-b",
+              "lang": "ko"
+            }
+          ],
+          "whyItMatters": "전일 지표의 의미를 풀이해요.",
+          "isUpdate": true
+        },
+        {
+          "id": "kr-2",
+          "topic": "politics",
+          "title": "[예시] 가상의 국회 일정",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 2,
+          "confidence": "high",
+          "tags": [
+            "국회"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/kr-2-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/kr-2-b",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "name": "미국",
+      "flag": "🇺🇸",
+      "summary": "[예시] 미국 분위기 요약",
+      "items": [
+        {
+          "id": "us-1",
+          "topic": "politics",
+          "title": "[예시] 예산안 협상 진전",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 3,
+          "confidence": "high",
+          "tags": [
+            "예산"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/us-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/us-1-b",
+              "lang": "ko"
+            }
+          ],
+          "isUpdate": true
+        },
+        {
+          "id": "us-2",
+          "topic": "tech",
+          "title": "[예시] 가상의 AI 규제 논의",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 2,
+          "confidence": "high",
+          "tags": [
+            "AI",
+            "규제"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/us-2-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/us-2-b",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CN",
+      "name": "중국",
+      "flag": "🇨🇳",
+      "summary": "[예시] 중국 분위기 요약",
+      "items": [
+        {
+          "id": "cn-1",
+          "topic": "economy",
+          "title": "[예시] 가상의 소비 지표",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 2,
+          "confidence": "high",
+          "tags": [
+            "소비"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/cn-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/cn-1-b",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GLOBAL",
+      "name": "글로벌",
+      "flag": "🌐",
+      "summary": "[예시] 글로벌 흐름",
+      "items": [
+        {
+          "id": "gl-1",
+          "topic": "climate",
+          "title": "[예시] 가상의 기후 회의 개막",
+          "summary": "이것은 테스트용 예시 요약입니다. 실제 뉴스가 아니며 화면 구성을 확인하기 위한 가상의 내용이에요.",
+          "importance": 3,
+          "confidence": "high",
+          "tags": [
+            "기후"
+          ],
+          "sources": [
+            {
+              "name": "예시통신",
+              "url": "https://example.com/gl-1-a",
+              "lang": "ko"
+            },
+            {
+              "name": "예시일보",
+              "url": "https://example.com/gl-1-b",
+              "lang": "ko"
+            }
+          ],
+          "whyItMatters": "각국 감축 목표 논의가 이어져요."
+        }
+      ]
+    }
+  ],
+  "watchlist": [
+    {
+      "date": "2026-12-01",
+      "title": "[예시] 가상의 정상회담",
+      "region": "US"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "[예시] 이미 지난 일정"
+    }
+  ],
+  "notes": "예시 데이터입니다."
+}

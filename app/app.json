@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "World Brief",
+    "slug": "world-brief",
+    "scheme": "worldbrief",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": { "supportsTablet": false, "bundleIdentifier": "com.hwetj.worldbrief" },
+    "android": {
+      "package": "com.hwetj.worldbrief",
+      "adaptiveIcon": {
+        "backgroundColor": "#1E3A8A",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-secure-store",
+      "expo-web-browser",
+      ["expo-notifications", { "color": "#1E3A8A", "icon": "./assets/notification-icon.png" }],
+      ["expo-splash-screen", { "backgroundColor": "#1E3A8A", "image": "./assets/splash-icon.png", "imageWidth": 200 }]
+    ]
+  }
+}

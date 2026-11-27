@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-27T10:00:00Z",
+  "latest": "2026-11-27-pm",
+  "editions": [
+    {
+      "id": "2026-11-27-pm",
+      "date": "2026-11-27",
+      "slot": "pm",
+      "title": "[예시] 11월 27일 저녁 브리핑",
+      "headline": [
+        "[예시] 저녁 이슈 하나",
+        "[예시] 저녁 이슈 둘",
+        "[예시] 저녁 이슈 셋"
+      ],
+      "regions": [
+        "KR",
+        "US",
+        "JP"
+      ],
+      "itemCount": 4,
+      "path": "data/editions/2026-11-27-pm.json"
+    },
+    {
+      "id": "2026-11-27-am",
+      "date": "2026-11-27",
+      "slot": "am",
+      "title": "[예시] 11월 27일 아침 브리핑",
+      "headline": [
+        "[예시] 반도체 이슈 후속",
+        "[예시] 가상의 외교 일정",
+        "[예시] 가상의 기후 회의"
+      ],
+      "regions": [
+        "KR",
+        "US",
+        "CN",
+        "GLOBAL"
+      ],
+      "itemCount": 6,
+      "path": "data/editions/2026-11-27-am.json"
+    },
+    {
+      "id": "2026-11-26-am",
+      "date": "2026-11-26",
+      "slot": "am",
+      "title": "[예시] 11월 26일 아침 브리핑",
+      "headline": [
+        "[예시] 가상의 첫째 이슈",
+        "[예시] 가상의 둘째 이슈",
+        "[예시] 가상의 셋째 이슈"
+      ],
+      "regions": [
+        "KR",
+        "US",
+        "JP"
+      ],
+      "itemCount": 5,
+      "path": "data/editions/2026-11-26-am.json"
+    }
+  ]
+}
