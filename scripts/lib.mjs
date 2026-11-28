@@ -4,6 +4,7 @@ import path from 'node:path';
 
 export const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 export const EDITIONS_DIR = path.join(ROOT, 'data', 'editions');
+export const RAW_DIR = path.join(ROOT, 'data', 'raw');
 export const INDEX_PATH = path.join(ROOT, 'data', 'index.json');
 
 export const REGIONS = ['KR', 'US', 'JP', 'CN', 'EU', 'GB', 'RU', 'ME', 'IN', 'GLOBAL'];
@@ -36,8 +37,8 @@ export function validateEdition(e, fileId) {
   if (typeof e.generatedAt !== 'string' || Number.isNaN(Date.parse(e.generatedAt))) err('generatedAt 이 ISO 시각이 아니에요');
   if (!isStr(e.title, 80)) err('title 은 1~80자');
   if (!Array.isArray(e.headline) || e.headline.length < 3 || e.headline.length > 5 || !e.headline.every((h) => isStr(h, 120))) err('headline 은 3~5개, 각 1~120자');
-  if (!Array.isArray(e.regions) || e.regions.length < 3 || e.regions.length > 12) {
-    err('regions 는 3~12개');
+  if (!Array.isArray(e.regions) || e.regions.length < 1 || e.regions.length > 12) {
+    err('regions 는 1~12개');
     return errs;
   }
   const codes = new Set();

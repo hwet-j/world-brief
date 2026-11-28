@@ -21,7 +21,7 @@ test('id·date·slot 불일치', () => {
 });
 
 test('지역·항목 개수와 중복', () => {
-  assert.match(validateEdition(edition({ regions: [region('KR', [item('a')])] })).join('\n'), /regions 는 3~12/);
+  assert.match(validateEdition(edition({ regions: [] })).join('\n'), /regions 는 1~12/);
   assert.match(validateEdition(edition({ regions: [region('KR', [item('x')]), region('KR', [item('y')]), region('US', [item('z')])] })).join('\n'), /중복/);
   assert.match(validateEdition(edition({ regions: [region('KR', [item('x')]), region('US', [item('x')]), region('JP', [item('j')])] })).join('\n'), /회차 안에서 중복/);
   assert.match(validateEdition(edition({ regions: [region('KR', []), region('US', [item('u')]), region('JP', [item('j')])] })).join('\n'), /1~16개/);

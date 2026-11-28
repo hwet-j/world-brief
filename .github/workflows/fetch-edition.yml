@@ -1,16 +1,24 @@
 name: Fetch headlines
-# 공개 RSS 헤드라인을 모아 회차를 만든다 (AI·API 비용 없음). 요약까지 한 회차가 이미 있으면 덮어쓰지 않는다.
-# 매일 한국 시간 06:40, 18:40 (UTC 21:40, 09:40)
+# 한국·미국 공개 RSS 를 모아 data/raw/<회차>.json 에 올린다 (AI·API 비용 없음).
+# 요약본(data/editions)은 Claude 세션이 이 원본을 읽어 만든다. 요약본이 늦으면 07:00·19:00 에 제목만으로 대신 만든다.
+#   수집: 매일 한국 시간 06:10, 18:10 (UTC 21:10, 09:10)   /   대체: 07:00, 19:00 (UTC 22:00, 10:00)
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'collect(원본 수집) 또는 fallback(요약본이 없을 때 제목만 회차)'
+        type: choice
+        options: [collect, fallback]
+        default: collect
       replace:
-        description: '같은 회차가 있어도 새로 만들어 덮어쓰기 (feeds 를 바꾼 뒤 시험용)'
+        description: '같은 회차가 있어도 덮어쓰기 (시험용)'
         type: boolean
         default: false
   schedule:
-    - cron: '40 21 * * *'
-    - cron: '40 9 * * *'
+    - cron: '10 21 * * *'
+    - cron: '10 9 * * *'
+    - cron: '0 22 * * *'
+    - cron: '0 10 * * *'
 
 permissions:
   contents: write
@@ -27,9 +35,18 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm test
-      - run: node scripts/fetch-rss.mjs
+      - name: Collect or fallback
         env:
           REPLACE: ${{ inputs.replace && '1' || '0' }}
+          SCHEDULE: ${{ github.event.schedule }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          mode="${MODE:-}"
+          if [ -z "$mode" ]; then
+            case "$SCHEDULE" in '0 22 * * *'|'0 10 * * *') mode=fallback;; *) mode=collect;; esac
+          fi
+          echo "mode=$mode"
+          if [ "$mode" = fallback ]; then node scripts/fetch-rss.mjs --fallback; else node scripts/fetch-rss.mjs; fi
       - run: node scripts/build-index.mjs
       - run: node scripts/validate.mjs
       - name: Commit
@@ -37,6 +54,7 @@ jobs:
           if [ -z "$(git status --porcelain data)" ]; then echo "변경 없음"; exit 0; fi
           git config user.name "정회창"
           git config user.email "81364742+hwet-j@users.noreply.github.com"
-          git add data
-          git commit -m "data: 헤드라인 자동 수집 ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git add -A data
+          git commit -m "data: 기사 원본 수집 ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git pull --rebase origin main
           git push
