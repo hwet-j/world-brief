@@ -83,7 +83,7 @@ if (edition.regions.length < 3) {
   process.exit(1);
 }
 const file = path.join(EDITIONS_DIR, `${edition.id}.json`);
-if (fs.existsSync(file)) {
+if (fs.existsSync(file) && process.env.REPLACE !== '1') {
   console.log(`${edition.id} 회차가 이미 있어요 — 덮어쓰지 않아요`);
   process.exit(0);
 }
