@@ -3,8 +3,13 @@ export type Topic = 'politics' | 'economy' | 'society' | 'world' | 'tech' | 'sec
 export type Confidence = 'high' | 'medium' | 'low';
 
 export interface Source { name: string; url: string; lang?: string }
+export interface Term { term: string; meaning: string }
 export interface Item {
   id: string; topic: Topic; title: string; summary: string; whyItMatters?: string;
+  /** 쉽게 말하면 (어려운 말 없이 한두 문장) */
+  easy?: string;
+  /** 어려운 용어 풀이 */
+  terms: Term[];
   importance: 1 | 2 | 3; confidence: Confidence; publishedAt?: string; isUpdate: boolean; tags: string[]; sources: Source[];
 }
 export interface Region { code: string; name: string; flag: string; summary: string; items: Item[] }
@@ -12,6 +17,8 @@ export interface Watch { date: string; title: string; region?: string }
 export interface Edition {
   schemaVersion: number; id: string; date: string; slot: 'am' | 'pm'; generatedAt: string; title: string;
   headline: string[]; regions: Region[]; watchlist: Watch[]; notes?: string;
+  /** 어제와 이어서 본 오늘의 흐름 ("어제는 …, 오늘은 …") */
+  recap?: string;
 }
 export interface IndexEntry { id: string; date: string; slot: 'am' | 'pm'; title: string; headline: string[]; regions: string[]; itemCount: number; path: string }
 export interface BriefIndex { schemaVersion: number; updatedAt: string; latest: string | null; editions: IndexEntry[] }

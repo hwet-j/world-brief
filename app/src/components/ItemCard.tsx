@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { useState } from 'react';
 import { Alert, Pressable, Share, Text, View } from 'react-native';
 
 import { isHttps } from '../lib/parse';
@@ -33,8 +33,10 @@ export async function openLink(url: string) {
   try { await WebBrowser.openBrowserAsync(url); } catch { Alert.alert('링크를 열 수 없어요'); }
 }
 
-export function ItemCard({ edition, region, item, query, compact }: { edition: { id: string; date: string }; region: Pick<Region, 'code' | 'name' | 'flag'>; item: Item; query?: string; compact?: boolean }) {
+export function ItemCard({ edition, region, item, query, compact, collapsible }: { edition: { id: string; date: string }; region: Pick<Region, 'code' | 'name' | 'flag'>; item: Item; query?: string; compact?: boolean; collapsible?: boolean }) {
   const { t, fs } = useUi();
+  // 접을 수 있는 카드(오늘 화면)는 핵심(중요도 3)만 펼쳐서 시작한다. 검색 결과 등은 늘 펼친다
+  const [open, setOpen] = useState(!collapsible || item.importance === 3);
   const { isBookmarked, toggleBookmark } = useBrief();
   const saved = isBookmarked(edition.id, item.id);
   const toggle = async () => { await toggleBookmark(edition, region, item); };
@@ -53,14 +55,32 @@ export function ItemCard({ edition, region, item, query, compact }: { edition: {
           <Ionicons name="share-outline" size={22} color={t.faint} />
         </Pressable>
       </View>
-      <Hl text={item.title} query={query} size={compact ? 16 : 17} bold />
-      <Hl text={item.summary} query={query} size={15} color={t.text} />
-      {item.whyItMatters ? (
+      <Pressable accessibilityRole={collapsible ? 'button' : undefined} accessibilityLabel={collapsible ? (open ? '접기' : '자세히 보기') : undefined} disabled={!collapsible} onPress={() => setOpen((v) => !v)} style={{ gap: 6 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 8 }}>
+          <Text style={{ fontSize: fs(18) }}>{region.flag}</Text>
+          <View style={{ flex: 1 }}><Hl text={item.title} query={query} size={compact ? 16 : 17} bold /></View>
+          {collapsible ? <Ionicons name={open ? 'chevron-up' : 'chevron-down'} size={18} color={t.faint} /> : null}
+        </View>
+        {item.easy ? (
+          <View style={{ backgroundColor: t.primarySoft, borderRadius: R.sm, padding: 10 }}>
+            <Txt size={15} color={t.text}><Text style={{ fontWeight: '800', color: t.primary }}>쉽게 말하면 </Text>{item.easy}</Txt>
+          </View>
+        ) : null}
+        {!open && !item.easy ? <Txt size={14} color={t.sub} lines={2}>{item.summary}</Txt> : null}
+      </Pressable>
+      {open ? <Hl text={item.summary} query={query} size={15} color={t.text} /> : null}
+      {open && item.terms.length ? (
+        <View style={{ backgroundColor: t.input, borderRadius: R.sm, padding: 10, gap: 4 }}>
+          <Txt size={13} bold color={t.sub}>📖 용어 풀이</Txt>
+          {item.terms.map((x) => <Txt key={x.term} size={14} color={t.text}><Text style={{ fontWeight: '800' }}>{x.term}</Text> — {x.meaning}</Txt>)}
+        </View>
+      ) : null}
+      {open && item.whyItMatters ? (
         <View style={{ borderLeftWidth: 3, borderLeftColor: t.primary, paddingLeft: 10 }}>
           <Txt size={14} color={t.sub}><Text style={{ fontWeight: '800', color: t.primary }}>왜 중요한가 </Text>{item.whyItMatters}</Txt>
         </View>
       ) : null}
-      {item.tags.length ? (
+      {open && item.tags.length ? (
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
           {item.tags.map((tag) => (
             <Pressable key={tag} accessibilityRole="button" accessibilityLabel={`${tag} 이슈 추적`} onPress={() => router.push({ pathname: '/tag/[tag]', params: { tag } })} hitSlop={4}
@@ -70,7 +90,7 @@ export function ItemCard({ edition, region, item, query, compact }: { edition: {
           ))}
         </View>
       ) : null}
-      {item.sources.length ? (
+      {open && item.sources.length ? (
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
           {item.sources.map((s) => (
             <Pressable key={s.url} accessibilityRole="link" accessibilityLabel={`${s.name} 원문 열기`} onPress={() => openLink(s.url)} hitSlop={4}

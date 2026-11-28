@@ -66,6 +66,11 @@ export function validateEdition(e, fileId) {
       if (![1, 2, 3].includes(it.importance)) err(`${ip}.importance 는 1|2|3`);
       if (!CONFIDENCE.includes(it.confidence)) err(`${ip}.confidence`);
       if (it.publishedAt != null && !validDate(it.publishedAt)) err(`${ip}.publishedAt 날짜 형식`);
+      if (it.easy != null && !isStr(it.easy, 400)) err(`${ip}.easy 는 1~400자`);
+      if (it.terms != null) {
+        if (!Array.isArray(it.terms) || it.terms.length > 5) err(`${ip}.terms 는 최대 5개`);
+        else it.terms.forEach((x, xi) => { if (!x || !isStr(x.term, 40) || !isStr(x.meaning, 300)) err(`${ip}.terms[${xi}] 형식(term 1~40자, meaning 1~300자)`); });
+      }
       if (it.isUpdate != null && typeof it.isUpdate !== 'boolean') err(`${ip}.isUpdate 는 boolean`);
       if (it.tags != null && (!Array.isArray(it.tags) || it.tags.length > 5 || !it.tags.every((t) => isStr(t, 24)))) err(`${ip}.tags 는 최대 5개, 각 1~24자`);
       if (!Array.isArray(it.sources) || it.sources.length < 1 || it.sources.length > 4) err(`${ip}.sources 는 1~4개`);
@@ -80,7 +85,7 @@ export function validateEdition(e, fileId) {
         });
       }
       if (it.confidence === 'high' && Array.isArray(it.sources) && it.sources.length < 2) err(`${ip}: confidence high 는 출처 2개 이상이 필요해요 (아니면 medium)`);
-      for (const k of ['title', 'summary', 'whyItMatters']) if (typeof it[k] === 'string' && HTML_RE.test(it[k])) err(`${ip}.${k} 에 HTML 이 들어 있어요`);
+      for (const k of ['title', 'summary', 'whyItMatters', 'easy']) if (typeof it[k] === 'string' && HTML_RE.test(it[k])) err(`${ip}.${k} 에 HTML 이 들어 있어요`);
     });
   });
   if (e.watchlist != null) {
@@ -91,7 +96,8 @@ export function validateEdition(e, fileId) {
     });
   }
   if (e.notes != null && !isStr(e.notes, 400)) err('notes 는 1~400자');
-  for (const k of ['title', 'notes']) if (typeof e[k] === 'string' && HTML_RE.test(e[k])) err(`${k} 에 HTML 이 들어 있어요`);
+  if (e.recap != null && !isStr(e.recap, 600)) err('recap 는 1~600자');
+  for (const k of ['title', 'notes', 'recap']) if (typeof e[k] === 'string' && HTML_RE.test(e[k])) err(`${k} 에 HTML 이 들어 있어요`);
   return errs;
 }
 

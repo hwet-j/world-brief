@@ -121,3 +121,15 @@ test('북마크: 항목을 스냅샷으로 복사해 원문 변경과 무관, �
   expect(bm.item).not.toBe(item);
   expect(bm.regionName).toBe('대한민국');
 });
+
+import { previousDays } from '../src/components/EditionView';
+
+describe('previousDays', () => {
+  const e = (id: string) => ({ id, date: id.slice(0, 10), slot: id.endsWith('am') ? 'am' as const : 'pm' as const, title: id, headline: [], regions: [], itemCount: 0, path: '' });
+  const index = { editions: [e('2026-11-28-pm'), e('2026-11-28-am'), e('2026-11-27-pm'), e('2026-11-27-am'), e('2026-11-26-pm'), e('2026-11-25-am')] };
+  test('이 회차보다 앞선 날짜마다 마지막 회차 하나, 최근 2일', () => {
+    expect(previousDays(index, { id: '2026-11-28-pm', date: '2026-11-28' }).map((x) => x.id)).toEqual(['2026-11-27-pm', '2026-11-26-pm']);
+    expect(previousDays(index, { id: '2026-11-25-am', date: '2026-11-25' })).toEqual([]);
+    expect(previousDays(null, { id: 'x', date: '2026-11-28' })).toEqual([]);
+  });
+});

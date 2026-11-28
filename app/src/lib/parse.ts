@@ -1,4 +1,4 @@
-import type { BriefIndex, Confidence, Edition, IndexEntry, Item, Parsed, Region, Source, Topic, Watch } from './types';
+import type { BriefIndex, Confidence, Edition, IndexEntry, Item, Parsed, Region, Source, Term, Topic, Watch } from './types';
 
 export const TOPICS: Topic[] = ['politics', 'economy', 'society', 'world', 'tech', 'security', 'energy', 'climate', 'health', 'culture', 'other'];
 const CONF: Confidence[] = ['high', 'medium', 'low'];
@@ -19,6 +19,13 @@ function parseSource(raw: unknown): Source | null {
   return { name, url: raw.url, lang: str(raw.lang, 8) };
 }
 
+function parseTerm(raw: unknown): Term | null {
+  if (!isObj(raw)) return null;
+  const term = str(raw.term, 40);
+  const meaning = str(raw.meaning, 300);
+  return term && meaning ? { term, meaning } : null;
+}
+
 function parseItem(raw: unknown, where: string, warnings: string[]): Item | null {
   if (!isObj(raw)) { warnings.push(`${where}: 항목이 객체가 아니라 건너뜀`); return null; }
   const id = str(raw.id, 40);
@@ -31,7 +38,7 @@ function parseItem(raw: unknown, where: string, warnings: string[]): Item | null
   const sources = arr(raw.sources).map(parseSource).filter((s): s is Source => !!s).slice(0, 6);
   const tags = arr(raw.tags).map((t) => str(t, 40)).filter((t): t is string => !!t).slice(0, 8);
   const pub = typeof raw.publishedAt === 'string' && DATE_RE.test(raw.publishedAt) ? raw.publishedAt : undefined;
-  return { id, topic, title, summary, whyItMatters: str(raw.whyItMatters, 400), importance, confidence, publishedAt: pub, isUpdate: raw.isUpdate === true, tags, sources };
+  return { id, topic, title, summary, whyItMatters: str(raw.whyItMatters, 400), easy: str(raw.easy, 400), terms: arr(raw.terms).map(parseTerm).filter((x): x is Term => !!x).slice(0, 5), importance, confidence, publishedAt: pub, isUpdate: raw.isUpdate === true, tags, sources };
 }
 
 function parseRegion(raw: unknown, ri: number, warnings: string[]): Region | null {
@@ -66,7 +73,7 @@ export function parseEdition(raw: unknown): Parsed<Edition> {
       slot: raw.slot === 'pm' ? 'pm' : 'am', generatedAt: str(raw.generatedAt, 40) ?? `${date}T00:00:00+09:00`,
       title: str(raw.title, 120) ?? `${date} 브리핑`,
       headline: arr(raw.headline).map((h) => str(h, 200)).filter((h): h is string => !!h).slice(0, 6),
-      regions, watchlist, notes: str(raw.notes, 600),
+      regions, watchlist, notes: str(raw.notes, 600), recap: str(raw.recap, 600),
     },
     warnings, futureSchema,
   };

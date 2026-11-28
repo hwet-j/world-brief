@@ -76,3 +76,24 @@ test('목록 파서: 최신순 정렬, 깨진 항목 건너뜀', () => {
 test('픽스처 객체는 불변으로 안전하게 재파싱', () => {
   expect(edition('a').regions[0].items[0].tags).toEqual(['반도체', '수출']);
 });
+
+describe('쉬운 설명 필드', () => {
+  const base = { schemaVersion: 1, id: '2026-11-28-pm', date: '2026-11-28', slot: 'pm', generatedAt: '2026-11-28T18:00:00+09:00', title: 't', headline: ['a', 'b', 'c'], regions: [{ code: 'KR', name: '한국', flag: '🇰🇷', summary: 's', items: [] }] };
+  const item = (extra: Record<string, unknown>) => ({ id: 'kr-1', topic: 'tech', title: '제목', summary: '요약 문장이에요 길게 적어요.', importance: 3, confidence: 'high', sources: [{ name: 'A', url: 'https://e.com/a' }], ...extra });
+
+  test('easy·terms·recap 를 읽고, 깨진 용어는 버린다', () => {
+    const raw = { ...base, recap: '어제는 A, 오늘은 B', regions: [{ ...base.regions[0], items: [item({ easy: '쉽게 말하면 이런 뜻', terms: [{ term: 'GW', meaning: '전기 단위' }, { term: '', meaning: 'x' }, { term: 'k' }, 'bad'] })] }] };
+    const e = parseEdition(raw).value!;
+    expect(e.recap).toBe('어제는 A, 오늘은 B');
+    const it = e.regions[0].items[0];
+    expect(it.easy).toBe('쉽게 말하면 이런 뜻');
+    expect(it.terms).toEqual([{ term: 'GW', meaning: '전기 단위' }]);
+  });
+
+  test('필드가 없어도(예전 회차) 기본값으로 읽힌다', () => {
+    const e = parseEdition({ ...base, regions: [{ ...base.regions[0], items: [item({})] }] }).value!;
+    expect(e.recap).toBeUndefined();
+    expect(e.regions[0].items[0].easy).toBeUndefined();
+    expect(e.regions[0].items[0].terms).toEqual([]);
+  });
+});
