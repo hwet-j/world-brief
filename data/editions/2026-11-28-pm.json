@@ -1,0 +1,753 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-28-pm",
+  "date": "2026-11-28",
+  "slot": "pm",
+  "generatedAt": "2026-11-28T21:57:58+09:00",
+  "title": "11월 28일 저녁 헤드라인",
+  "headline": [
+    "🇰🇷 1958년부터 35년간 오페라 주역…원로 테너 안형일 별세",
+    "🇺🇸 Explosion at a school in eastern Afghanistan kills 7, wounds more than 90",
+    "🇯🇵 How spy drama ‘Vivant’ set off a furor — and a fervor",
+    "🇨🇳 Taiwan elections: KMT’s Johnny Chiang loses key Taichung race in possible 2028 blow",
+    "🇪🇺 Azerbaijan's opposition leader Ali Karimli: A year behind bars"
+  ],
+  "regions": [
+    {
+      "code": "KR",
+      "name": "대한민국",
+      "flag": "🇰🇷",
+      "summary": "대한민국 주요 기사 5건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "kr-1",
+          "topic": "other",
+          "title": "1958년부터 35년간 오페라 주역…원로 테너 안형일 별세",
+          "summary": "(서울=연합뉴스) 이충원 기자 = 1958년 '리골레토'를 시작으로 1992년 '라 보엠'까지 햇수로 35년간 오페라 주역으로 활약한 원로 테너...",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20240220126700505",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-2",
+          "topic": "other",
+          "title": "강금실 “중국 특별고문, 박근혜 정부 때 무보수 명예직”…‘친중’ 논란 반박",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "한겨레",
+              "url": "https://www.hani.co.kr/arti/politics/diplomacy/1289542.html",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-3",
+          "topic": "other",
+          "title": "1252회 로또 1등 16명…당첨금 각 17억6천만원(종합)",
+          "summary": "(서울=연합뉴스) 로또복권 운영사 동행복권은 제1252회 로또복권 추첨에서 '9, 19, 23, 28, 33, 44'가 1등 당첨번호로 뽑혔다고...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128051800002",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-4",
+          "topic": "other",
+          "title": "이 대통령, 주문진시장 깜짝 방문…온누리상품권으로 노가리·오징어 구입",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "한겨레",
+              "url": "https://www.hani.co.kr/arti/society/environment/1289541.html",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-5",
+          "topic": "other",
+          "title": "제주서 강풍피해 속출…패널에 사람 깔리고 항공·해상교통 차질(종합)",
+          "summary": "(제주=연합뉴스) 박지호 기자 = 강풍특보가 내려진 제주에서 건축용 패널에 깔려 부상자가 발생하는 등 인명과 시설물 피해가 이어졌고, 항공·해상...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128046451056",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "name": "미국",
+      "flag": "🇺🇸",
+      "summary": "미국 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "us-1",
+          "topic": "other",
+          "title": "Explosion at a school in eastern Afghanistan kills 7, wounds more than 90",
+          "summary": "Local officials said the blast appeared to have originated in a neighboring depot for mining explosives.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/nx-s1-6056284/explosion-school-eastern-afghanistan",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-2",
+          "topic": "other",
+          "title": "New wave of Democratic attorneys general may reshape the justice system",
+          "summary": "The Democratic victories could have major effects for what alleged crimes are investigated, lawsuits filed and court cases heard across the U.S.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/g-s1-155837/democratic-attorneys-general-justice-system-texas",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-3",
+          "topic": "other",
+          "title": "Sudan's lost generation: War is stealing the childhood of millions",
+          "summary": "Three years of war have stolen childhood from millions of children in Sudan, leaving them displaced, hungry and fighting for survival instead of learning in a classroom.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6053049/sudans-lost-generation-war-is-stealing-a-generation-of-childhood",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-4",
+          "topic": "other",
+          "title": "Thanksgiving storm batters East Coast. And, Black Friday sales to hit record levels",
+          "summary": "A powerful storm knocked out power for nearly 1 million customers and flooded streets. And, experts predict inflation will not dampen American spending for the holidays",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/g-s1-156004/up-first-newsletter-thanksgiving-storm-black-friday-shopping-asylum-supreme-court",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "JP",
+      "name": "일본",
+      "flag": "🇯🇵",
+      "summary": "일본 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "jp-1",
+          "topic": "other",
+          "title": "How spy drama ‘Vivant’ set off a furor — and a fervor",
+          "summary": "The second season of the hit spy thriller from TBS proves the whole isn't always greater than the sum of its parts.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/culture/2026/11/28/tv-streaming/vivant-season-2-controversies/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-2",
+          "topic": "other",
+          "title": "Number of births in Japan rises for the first time in 11 years",
+          "summary": "The rise may have reflected an increase in the number of marriages in 2024 after years of decline during the COVID-19 pandemic.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/news/2026/11/28/japan/society/japan-births-rise/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-3",
+          "topic": "other",
+          "title": "WWE star Bronson Reed dies at 38",
+          "summary": "The company paid tribute to Reed, calling him a \"larger-than-life figure in WWE.\"",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/sports/2026/11/28/more-sports/bronson-reed-wwe-wrestling/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-4",
+          "topic": "other",
+          "title": "Japan expected to push for debate on nuclear subs in security document revisions",
+          "summary": "Japan is expected to say in the documents due by the year-end that it will \"begin considering and reach a conclusion\" on the controversial issue.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/news/2026/11/28/japan/japan-nuclear-submarines-security-documents/",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CN",
+      "name": "중국·대만·홍콩",
+      "flag": "🇨🇳",
+      "summary": "중국·대만·홍콩 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "cn-1",
+          "topic": "other",
+          "title": "Taiwan elections: KMT’s Johnny Chiang loses key Taichung race in possible 2028 blow",
+          "summary": "The Kuomintang suffered a major setback in central Taiwan’s key battleground of Taichung on Saturday as Johnny Chiang Chi-chen lost to Democratic Progressive Party legislator Ho Hsin-chun in the mayoral race. The defeat ends eight years of…",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/china/politics/article/3376143/taiwan-elections-kmts-johnny-chiang-loses-key-taichung-race-possible-2028-blow",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-2",
+          "topic": "other",
+          "title": "UK charity honouring WWII veteran to be disbanded after financial controversy",
+          "summary": "A charity set up by the family of a British World War II veteran who raised tens of millions of pounds by walking laps of his garden during the coronavirus pandemic has applied to be disbanded, two years after the country’s charity watchdo…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/world/europe/article/3376142/uk-charity-honouring-wwii-veteran-be-disbanded-after-financial-controversy",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-3",
+          "topic": "other",
+          "title": "US Navy pushes ahead with submarine-launched nuclear cruise missile programme",
+          "summary": "The United States is a step closer to restoring atomic weapons to its attack submarines, with Raytheon announcing on Tuesday it has a US Navy deal to advance development of a nuclear-armed cruise missile – a capability Washington retired i…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/china/military/article/3376032/us-navy-pushes-ahead-submarine-launched-nuclear-cruise-missile-programme",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-4",
+          "topic": "other",
+          "title": "KMT challenger Ko Chih-en falls short as DPP retains Kaohsiung stronghold",
+          "summary": "Kuomintang candidate Ko Chih-en lost the Kaohsiung mayoral election on Saturday, falling short in her bid to flip control of the southern port city after an intense campaign. Three-term lawmaker Lai Jui-lung of the Democratic Progressive P…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/china/politics/article/3376141/kmt-challenger-ko-chih-en-falls-short-dpp-retains-kaohsiung-stronghold",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "EU",
+      "name": "유럽연합·독일·프랑스",
+      "flag": "🇪🇺",
+      "summary": "유럽연합·독일·프랑스 주요 기사 5건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "eu-1",
+          "topic": "other",
+          "title": "Azerbaijan's opposition leader Ali Karimli: A year behind bars",
+          "summary": "Azerbaijani opposition leader Ali Karimli has been in prison since November 2025. Authorities accuse him of attempting to seize power by force, but human rights groups say his prosecution is politically motivated.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/azerbaijan-s-opposition-leader-ali-karimli-a-year-behind-bars/a-80036095?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-2",
+          "topic": "other",
+          "title": "Marches planned in France amid alarming global statistics on women’s safety",
+          "summary": "Cynthia Illouz, founder of French-American News media @thewomensvoices, is our guest.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "France 24",
+              "url": "https://www.france24.com/en/marches-planned-in-france-amid-alarming-global-statistics-on-women-s-safety",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-3",
+          "topic": "other",
+          "title": "Ukraine's expertise comes in handy for international drone alliances",
+          "summary": "Ukrainian expertise merged with Europe's financial and industrial clout: Germany and other countries are expanding drone partnerships with Ukraine and reshaping Europe's defense industry in the process.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/ukraine-s-expertise-comes-in-handy-for-international-drone-alliances/a-80075472?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-4",
+          "topic": "other",
+          "title": "Credit rating agency S&P may downgrade France's credit rating",
+          "summary": "Credit rating agency S&P on Friday maintained France's A+ credit rating but lowered its outlook for the country to negative from stable, warning of a possible downgrade as the country struggles to bring down its budget deficit.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "France 24",
+              "url": "https://www.france24.com/en/credit-rating-agency-s-p-may-downgrade-france-s-credit-rating",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-5",
+          "topic": "other",
+          "title": "AI data centers in space: Millions of satellites and so many unknowns",
+          "summary": "SpaceX is seeking approval to launch a million satellites into orbit to build AI data centers in space. Experts are skeptical, citing many unanswered questions. At the top of the list: Who owns the sky?",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/ai-data-centers-in-space-millions-of-satellites-and-so-many-unknowns/a-80080166?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GB",
+      "name": "영국",
+      "flag": "🇬🇧",
+      "summary": "영국 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "gb-1",
+          "topic": "other",
+          "title": "Millions lose access to benefits and pensions services after 'cyber incident'",
+          "summary": "The Department for Work and Pensions says some of its services were taken offline as a precaution.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c8wy5p6pv2e2o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-2",
+          "topic": "other",
+          "title": "Catherine's emotional cancer documentary strips away the stiff upper lip",
+          "summary": "The Princess of Wales has made a documentary, Heal, describing her cancer experience in her own words.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c6zxvy9j0wpjo?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-3",
+          "topic": "other",
+          "title": "Pharmacies get new powers to swap prescriptions during shortages",
+          "summary": "If a medicine is out of stock, staff can offer the same drug in a different strength or form, like a capsule instead of a pill.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/cw5y1pelzm8ro?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-4",
+          "topic": "other",
+          "title": "Set time aside for children to read for pleasure, schools to be told",
+          "summary": "The government says its new cirriculum hopes to reverse declining literacy rates and combat \"mindless scrolling\".",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c65y1vp4ndqjo?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ME",
+      "name": "중동",
+      "flag": "🌍",
+      "summary": "중동 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "me-1",
+          "topic": "other",
+          "title": "Tarantulas, scorpions and more found in luggage at Peru airport",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/video/newsfeed/2026/11/28/tarantulas-scorpions-and-more-found-in-luggage-at-peru-airport?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-2",
+          "topic": "other",
+          "title": "Manchester United vs Brentford LIVE: Premier League",
+          "summary": "Follow updates with build-up and team news coverage from our live text commentary stream as Bruno Fernandes headlines.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/sports/liveblog/2026/11/28/manchester-united-vs-brentford-live-premier-league?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-3",
+          "topic": "other",
+          "title": "India fumble chances as New Zealand finish day two on top in Christchurch",
+          "summary": "India limp to 116-6 at stumps on day two of the second Test, in reply to the Black Caps' first innings 356.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/sports/2026/11/28/india-fumble-chances-as-new-zealand-finish-day-two-on-top-in-christchurch?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-4",
+          "topic": "other",
+          "title": "Security tries to remove Palestinian flag at Selfridges on Black Friday",
+          "summary": "Pro-Palestinian protesters demonstrated in a Selfridges department store in London on Black Friday.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/video/newsfeed/2026/11/28/security-tries-to-remove-palestinian-flag-at-selfridges-on-black-friday?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "IN",
+      "name": "인도·남아시아",
+      "flag": "🇮🇳",
+      "summary": "인도·남아시아 주요 기사 4건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "in-1",
+          "topic": "other",
+          "title": "Delimitation Bill LIVE: 'The number 850 represents murder of democracy,' says Rahul; DMK announces…",
+          "summary": "INDIA bloc vows to oppose the delimitation push, while the ruling NDA is confident of passing the Bills",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/delimitation-bill-special-parliament-session-india-bloc-meeting-opposition-bjp-live-updates-november-28-2026/article71753535.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-2",
+          "topic": "other",
+          "title": "Bar Council calls for mass Preamble recitation across A.P. courts on December 1",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/andhra-pradesh/bar-council-calls-for-mass-preamble-recitation-across-ap-courts-on-december-1/article71751510.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-3",
+          "topic": "other",
+          "title": "INDIA bloc to oppose delimitation Bills package, alleges BJP wants to be in power permanently",
+          "summary": "Mallikarjun Kharge links proposed expansion of Lok Sabha to the 2024 parliamentary election ambition of ‘400 paar’, says Constitution will be amended to implement Manusmriti",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/india-bloc-decides-to-oppose-delimitation-bill-says-it-is-against-scssts-will-end-democracy/article71754026.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-4",
+          "topic": "other",
+          "title": "Thirupparankundram row LIVE: Karthigai lamp lit at 'deepathoon'; Supreme Court appointed retired Ju…",
+          "summary": "Supreme Court declared that Executive authorities had wilfully disobeyed the orders of the court over the failure to light the ceremonial Karthigai Deepam at the disputed stone pillar on Thirupparankundram",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/tamil-nadu/thiruparankundram-deepam-issue-supreme-court-contempt-tamil-nadu-karthigai-deepam-deepathoon-row-live-updates-november-28-2026/article71753437.ece",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GLOBAL",
+      "name": "글로벌",
+      "flag": "🌐",
+      "summary": "글로벌 주요 기사 5건 (자동 수집 헤드라인)",
+      "items": [
+        {
+          "id": "global-1",
+          "topic": "other",
+          "title": "Argentina's bid to stop Falklands oil drilling rejected",
+          "summary": "A joint venture between UK-Israeli companies is set to start exploring for oil and gas, but Argentina sought to block it as part of its claim to sovereignty.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC World",
+              "url": "https://www.bbc.co.uk/news/articles/c84gnq3qq9rno?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-2",
+          "topic": "tech",
+          "title": "2026 Kindle Paperwhite review: Page-turn buttons are back, for a price",
+          "summary": "Kindles are getting costlier faster than they're getting better.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Ars Technica",
+              "url": "https://arstechnica.com/gadgets/2026/11/2026-kindle-paperwhite-review-page-turn-buttons-are-back-for-a-price/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-3",
+          "topic": "other",
+          "title": "Two staff killed in Israeli strike on Gaza medical clinic, MSF says",
+          "summary": "The Israeli military says it targeted \"Hamas terrorists\" in the strike which has been condemned by the World Health Organization.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC World",
+              "url": "https://www.bbc.co.uk/news/articles/cm5y10yydln3o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-4",
+          "topic": "tech",
+          "title": "The best Black Friday deals Ars could find",
+          "summary": "Perhaps some commerce, to help all the Turkey Day leftovers go down easier?",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Ars Technica",
+              "url": "https://arstechnica.com/shopping/2026/11/the-best-black-friday-deals-ars-could-find/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-5",
+          "topic": "other",
+          "title": "Afghanistan explosion kills 10 students and injures more than 100, official says",
+          "summary": "A spokesman for Afghanistan's interior ministry says the blast was caused by carelessness at an explosives depot nearby.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC World",
+              "url": "https://www.bbc.co.uk/news/articles/ckp80jyz6dl8o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "자동 수집한 RSS 헤드라인이에요. 번역과 요약은 없고 원문 언어 그대로예요. 사실 확인은 출처 링크에서 해 주세요."
+}
