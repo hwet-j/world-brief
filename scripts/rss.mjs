@@ -27,7 +27,9 @@ export function parseFeed(xml, limit = 10) {
     link = decode(link).trim();
     const description = strip(tag(b, 'description') || tag(b, 'summary') || tag(b, 'content'));
     if (!title || !/^https:\/\/\S+$/.test(link) || link.length > 500) continue;
-    out.push({ title, link, description });
+    const raw = strip(tag(b, 'pubDate') || tag(b, 'dc:date') || tag(b, 'published') || tag(b, 'updated'));
+    const t = raw ? Date.parse(raw) : NaN;
+    out.push({ title, link, description, publishedAt: Number.isNaN(t) ? null : new Date(t + 9 * 3_600_000).toISOString().slice(0, 10) });
     if (out.length >= limit) break;
   }
   return out;
@@ -66,7 +68,7 @@ export function buildEdition(feedsByRegion, now = new Date()) {
         summary,
         importance: n === 1 ? 2 : 1,
         confidence: 'medium',
-        publishedAt: date,
+        publishedAt: /^\d{4}-\d{2}-\d{2}$/.test(it.publishedAt ?? '') ? it.publishedAt : date,
         tags: TOPIC_LABEL[it.topic] ? [TOPIC_LABEL[it.topic]] : [],
         sources: [{ name: it.source, url: it.link, lang: it.lang }],
       });

@@ -1,92 +1,155 @@
 #!/usr/bin/env node
-// 공개 RSS 헤드라인을 모아 data/editions/<오늘>-<am|pm>.json 을 만든다 (AI·API 비용 없음).
-// 같은 회차 파일이 이미 있으면(예: 요약까지 해 둔 회차) 덮어쓰지 않는다.
+// 한국·미국의 공개 RSS 를 모은다 (AI·API 비용 없음).
+//   node scripts/fetch-rss.mjs              → data/raw/<회차>.json 에 원본 기사 목록 저장 (요약 작업이 읽는다)
+//   node scripts/fetch-rss.mjs --fallback   → 요약된 회차가 아직 없으면 원본으로 '제목만' 회차를 대신 만든다
+// 같은 id 의 회차 파일(요약본)이 있으면 절대 덮어쓰지 않는다 (REPLACE=1 이면 허용).
 import fs from 'node:fs';
 import path from 'node:path';
-import { EDITIONS_DIR } from './lib.mjs';
+import { EDITIONS_DIR, RAW_DIR } from './lib.mjs';
 import { buildEdition, parseFeed } from './rss.mjs';
 
-// code → { name, flag, feeds: [{ source, lang, url, topic? }] }  (docs/regions.md 의 출처 중 공개 RSS 가 있는 곳)
+// topic: politics|economy|tech|society|world|culture. 접속·형식 오류가 나는 피드는 건너뛴다 (로그에 남음)
+const f = (source, lang, topic, url) => ({ source, lang, topic, url });
 const REGION_FEEDS = {
-  // 한국·미국은 분야별(정치·경제·IT·사회·국제)로 여러 출처에서 넉넉히 모은다
   KR: { name: '대한민국', flag: '🇰🇷', feeds: [
-    { source: '연합뉴스', lang: 'ko', topic: 'politics', url: 'https://www.yna.co.kr/rss/politics.xml' },
-    { source: '한국경제', lang: 'ko', topic: 'politics', url: 'https://www.hankyung.com/feed/politics' },
-    { source: '한겨레', lang: 'ko', topic: 'politics', url: 'https://www.hani.co.kr/rss/politics/' },
-    { source: '연합뉴스', lang: 'ko', topic: 'economy', url: 'https://www.yna.co.kr/rss/economy.xml' },
-    { source: '한국경제', lang: 'ko', topic: 'economy', url: 'https://www.hankyung.com/feed/economy' },
-    { source: '매일경제', lang: 'ko', topic: 'economy', url: 'https://www.mk.co.kr/rss/30100041/' },
-    { source: '한국경제', lang: 'ko', topic: 'tech', url: 'https://www.hankyung.com/feed/it' },
-    { source: '전자신문', lang: 'ko', topic: 'tech', url: 'https://rss.etnews.com/Section901.xml' },
-    { source: '연합뉴스', lang: 'ko', topic: 'society', url: 'https://www.yna.co.kr/rss/society.xml' },
-    { source: '연합뉴스', lang: 'ko', topic: 'world', url: 'https://www.yna.co.kr/rss/international.xml' },
+    f('연합뉴스', 'ko', 'politics', 'https://www.yna.co.kr/rss/politics.xml'),
+    f('연합뉴스', 'ko', 'economy', 'https://www.yna.co.kr/rss/economy.xml'),
+    f('연합뉴스', 'ko', 'society', 'https://www.yna.co.kr/rss/society.xml'),
+    f('연합뉴스', 'ko', 'world', 'https://www.yna.co.kr/rss/international.xml'),
+    f('연합뉴스', 'ko', 'tech', 'https://www.yna.co.kr/rss/industry.xml'),
+    f('한국경제', 'ko', 'politics', 'https://www.hankyung.com/feed/politics'),
+    f('한국경제', 'ko', 'economy', 'https://www.hankyung.com/feed/economy'),
+    f('한국경제', 'ko', 'tech', 'https://www.hankyung.com/feed/it'),
+    f('한국경제', 'ko', 'world', 'https://www.hankyung.com/feed/international'),
+    f('매일경제', 'ko', 'economy', 'https://www.mk.co.kr/rss/30100041/'),
+    f('매일경제', 'ko', 'politics', 'https://www.mk.co.kr/rss/30200030/'),
+    f('매일경제', 'ko', 'tech', 'https://www.mk.co.kr/rss/50700001/'),
+    f('한겨레', 'ko', 'politics', 'https://www.hani.co.kr/rss/politics/'),
+    f('한겨레', 'ko', 'economy', 'https://www.hani.co.kr/rss/economy/'),
+    f('한겨레', 'ko', 'society', 'https://www.hani.co.kr/rss/society/'),
+    f('경향신문', 'ko', 'politics', 'https://www.khan.co.kr/rss/rssdata/politic_news.xml'),
+    f('경향신문', 'ko', 'economy', 'https://www.khan.co.kr/rss/rssdata/economy_news.xml'),
+    f('경향신문', 'ko', 'tech', 'https://www.khan.co.kr/rss/rssdata/it_news.xml'),
+    f('조선일보', 'ko', 'politics', 'https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml'),
+    f('조선일보', 'ko', 'economy', 'https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml'),
+    f('중앙일보', 'ko', 'politics', 'https://rss.joins.com/joins_politics_list.xml'),
+    f('중앙일보', 'ko', 'economy', 'https://rss.joins.com/joins_money_list.xml'),
+    f('동아일보', 'ko', 'politics', 'https://rss.donga.com/politics.xml'),
+    f('동아일보', 'ko', 'economy', 'https://rss.donga.com/economy.xml'),
+    f('SBS', 'ko', 'politics', 'https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=01&plink=RSSREADER'),
+    f('SBS', 'ko', 'economy', 'https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=02&plink=RSSREADER'),
+    f('SBS', 'ko', 'society', 'https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=03&plink=RSSREADER'),
+    f('SBS', 'ko', 'world', 'https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=07&plink=RSSREADER'),
+    f('JTBC', 'ko', 'politics', 'https://fs.jtbc.co.kr/RSS/politics.xml'),
+    f('JTBC', 'ko', 'economy', 'https://fs.jtbc.co.kr/RSS/economy.xml'),
+    f('KBS', 'ko', 'society', 'https://news.kbs.co.kr/rss/rss.xml'),
+    f('오마이뉴스', 'ko', 'politics', 'https://rss.ohmynews.com/rss/ohmynews.xml'),
+    f('전자신문', 'ko', 'tech', 'https://rss.etnews.com/Section901.xml'),
+    f('ZDNet Korea', 'ko', 'tech', 'https://feeds.feedburner.com/zdkorea'),
+    f('블로터', 'ko', 'tech', 'https://www.bloter.net/feed'),
   ] },
   US: { name: '미국', flag: '🇺🇸', feeds: [
-    { source: 'NPR', lang: 'en', topic: 'politics', url: 'https://feeds.npr.org/1014/rss.xml' },
-    { source: 'NYT', lang: 'en', topic: 'politics', url: 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml' },
-    { source: 'NPR', lang: 'en', topic: 'economy', url: 'https://feeds.npr.org/1006/rss.xml' },
-    { source: 'NYT', lang: 'en', topic: 'economy', url: 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml' },
-    { source: 'NPR', lang: 'en', topic: 'tech', url: 'https://feeds.npr.org/1019/rss.xml' },
-    { source: 'The Verge', lang: 'en', topic: 'tech', url: 'https://www.theverge.com/rss/index.xml' },
-    { source: 'NYT', lang: 'en', topic: 'tech', url: 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml' },
-    { source: 'NPR', lang: 'en', topic: 'world', url: 'https://feeds.npr.org/1004/rss.xml' },
+    f('NPR', 'en', 'politics', 'https://feeds.npr.org/1014/rss.xml'),
+    f('NPR', 'en', 'economy', 'https://feeds.npr.org/1006/rss.xml'),
+    f('NPR', 'en', 'tech', 'https://feeds.npr.org/1019/rss.xml'),
+    f('NPR', 'en', 'world', 'https://feeds.npr.org/1004/rss.xml'),
+    f('NPR', 'en', 'society', 'https://feeds.npr.org/1001/rss.xml'),
+    f('NYT', 'en', 'politics', 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml'),
+    f('NYT', 'en', 'economy', 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'),
+    f('NYT', 'en', 'tech', 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'),
+    f('NYT', 'en', 'world', 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml'),
+    f('PBS NewsHour', 'en', 'politics', 'https://www.pbs.org/newshour/feeds/rss/politics'),
+    f('PBS NewsHour', 'en', 'economy', 'https://www.pbs.org/newshour/feeds/rss/economy'),
+    f('PBS NewsHour', 'en', 'world', 'https://www.pbs.org/newshour/feeds/rss/world'),
+    f('CNN', 'en', 'politics', 'https://rss.cnn.com/rss/cnn_allpolitics.rss'),
+    f('CNN', 'en', 'economy', 'https://rss.cnn.com/rss/money_latest.rss'),
+    f('CNN', 'en', 'tech', 'https://rss.cnn.com/rss/cnn_tech.rss'),
+    f('CNN', 'en', 'world', 'https://rss.cnn.com/rss/cnn_world.rss'),
+    f('Fox News', 'en', 'politics', 'https://moxie.foxnews.com/google-publisher/politics.xml'),
+    f('Fox News', 'en', 'tech', 'https://moxie.foxnews.com/google-publisher/tech.xml'),
+    f('Guardian US', 'en', 'politics', 'https://www.theguardian.com/us-news/us-politics/rss'),
+    f('Guardian US', 'en', 'economy', 'https://www.theguardian.com/us/business/rss'),
+    f('Guardian US', 'en', 'tech', 'https://www.theguardian.com/us/technology/rss'),
+    f('Politico', 'en', 'politics', 'https://rss.politico.com/politics-news.xml'),
+    f('The Hill', 'en', 'politics', 'https://thehill.com/feed/'),
+    f('Axios', 'en', 'politics', 'https://api.axios.com/feed/'),
+    f('CNBC', 'en', 'economy', 'https://www.cnbc.com/id/100003114/device/rss/rss.html'),
+    f('CNBC', 'en', 'economy', 'https://www.cnbc.com/id/20910258/device/rss/rss.html'),
+    f('CNBC', 'en', 'tech', 'https://www.cnbc.com/id/19854910/device/rss/rss.html'),
+    f('WSJ', 'en', 'economy', 'https://feeds.a.dj.com/rss/RSSMarketsMain.xml'),
+    f('WSJ', 'en', 'world', 'https://feeds.a.dj.com/rss/RSSWorldNews.xml'),
+    f('WSJ', 'en', 'tech', 'https://feeds.a.dj.com/rss/RSSWSJD.xml'),
+    f('The Verge', 'en', 'tech', 'https://www.theverge.com/rss/index.xml'),
+    f('TechCrunch', 'en', 'tech', 'https://techcrunch.com/feed/'),
+    f('Wired', 'en', 'tech', 'https://www.wired.com/feed/rss'),
+    f('Ars Technica', 'en', 'tech', 'https://feeds.arstechnica.com/arstechnica/index'),
+    f('MIT Technology Review', 'en', 'tech', 'https://www.technologyreview.com/feed/'),
   ] },
-  JP: { name: '일본', flag: '🇯🇵', feeds: [{ source: 'Japan Times', lang: 'en', url: 'https://www.japantimes.co.jp/feed/' }] },
-  CN: { name: '중국·대만·홍콩', flag: '🇨🇳', feeds: [{ source: 'SCMP', lang: 'en', url: 'https://www.scmp.com/rss/91/feed' }] },
-  EU: { name: '유럽연합·독일·프랑스', flag: '🇪🇺', feeds: [{ source: 'DW', lang: 'en', url: 'https://rss.dw.com/rdf/rss-en-all' }, { source: 'France 24', lang: 'en', url: 'https://www.france24.com/en/rss' }] },
-  GB: { name: '영국', flag: '🇬🇧', feeds: [{ source: 'BBC', lang: 'en', url: 'https://feeds.bbci.co.uk/news/uk/rss.xml' }] },
-  RU: { name: '러시아·우크라이나', flag: '🇷🇺', feeds: [{ source: 'Kyiv Independent', lang: 'en', url: 'https://kyivindependent.com/feed/' }] },
-  ME: { name: '중동', flag: '🌍', feeds: [{ source: 'Al Jazeera', lang: 'en', url: 'https://www.aljazeera.com/xml/rss/all.xml' }] },
-  IN: { name: '인도·남아시아', flag: '🇮🇳', feeds: [{ source: 'The Hindu', lang: 'en', url: 'https://www.thehindu.com/news/national/feeder/default.rss' }] },
-  GLOBAL: { name: '글로벌', flag: '🌐', feeds: [{ source: 'BBC World', lang: 'en', topic: 'world', url: 'https://feeds.bbci.co.uk/news/world/rss.xml' }, { source: 'Ars Technica', lang: 'en', topic: 'tech', url: 'https://feeds.arstechnica.com/arstechnica/index' }, { source: 'BBC Business', lang: 'en', topic: 'economy', url: 'https://feeds.bbci.co.uk/news/business/rss.xml' }] },
 };
+const PER_FEED = 8;
 
 async function fetchText(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': 'world-brief-rss/1.0 (+https://github.com/hwet-j/world-brief)', Accept: 'application/rss+xml, application/xml, text/xml, */*' }, signal: AbortSignal.timeout(20_000) });
+  const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; world-brief-rss/1.0; +https://github.com/hwet-j/world-brief)', Accept: 'application/rss+xml, application/xml, text/xml, */*' }, signal: AbortSignal.timeout(20_000), redirect: 'follow' });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.text();
 }
 
-const byRegion = {};
-for (const [code, r] of Object.entries(REGION_FEEDS)) {
-  const items = [];
-  for (const f of r.feeds) {
-    try {
-      const xml = await fetchText(f.url);
-      const got = parseFeed(xml, 4);
-      console.log(`${code} ${f.source}: ${got.length}건`);
-      for (const g of got) items.push({ ...g, source: f.source, lang: f.lang, topic: f.topic });
-    } catch (e) {
-      console.warn(`${code} ${f.source}: 건너뜀 (${e.message})`);
-    }
+const slotId = (now = new Date()) => {
+  const kst = new Date(now.getTime() + 9 * 3_600_000);
+  return `${kst.toISOString().slice(0, 10)}-${kst.getUTCHours() < 12 ? 'am' : 'pm'}`;
+};
+
+async function collect() {
+  const regions = {};
+  for (const [code, r] of Object.entries(REGION_FEEDS)) {
+    const items = [];
+    const seen = new Set();
+    await Promise.all(r.feeds.map(async (fd) => {
+      try {
+        const got = parseFeed(await fetchText(fd.url), PER_FEED);
+        console.log(`${code} ${fd.source}/${fd.topic}: ${got.length}건`);
+        return got.map((g) => ({ ...g, source: fd.source, lang: fd.lang, topic: fd.topic }));
+      } catch (e) {
+        console.warn(`${code} ${fd.source}/${fd.topic}: 건너뜀 (${e.message}) ${fd.url}`);
+        return [];
+      }
+    })).then((lists) => lists.flat().forEach((it) => { if (!seen.has(it.link)) { seen.add(it.link); items.push(it); } }));
+    regions[code] = { name: r.name, flag: r.flag, items };
+    console.log(`== ${code}: 총 ${items.length}건`);
   }
-  // 한 출처가 한 지역을 독점하지 않게 출처별로 번갈아 담는다
-  byRegion[code] = { name: r.name, flag: r.flag, items: interleave(items) };
+  return regions;
 }
 
-/** 분야 → 출처 순으로 번갈아 담는다: 정치·경제·IT 가 골고루, 한 출처가 독점하지 않게 */
-function interleave(items) {
-  const byTopic = new Map();
-  for (const it of items) {
-    const k = it.topic ?? 'other';
-    byTopic.set(k, [...(byTopic.get(k) ?? []), it]);
-  }
-  const lists = [...byTopic.values()];
-  const out = [];
-  for (let i = 0; lists.some((l) => i < l.length); i++) for (const l of lists) if (i < l.length) out.push(l[i]);
-  return out;
-}
+const id = slotId();
+const rawFile = path.join(RAW_DIR, `${id}.json`);
+const editionFile = path.join(EDITIONS_DIR, `${id}.json`);
+const fallback = process.argv.includes('--fallback');
 
-const edition = buildEdition(byRegion);
-if (edition.regions.length < 3) {
-  console.error(`수집된 지역이 ${edition.regions.length}개뿐이에요(최소 3개). 회차를 만들지 않아요.`);
-  process.exit(1);
-}
-const file = path.join(EDITIONS_DIR, `${edition.id}.json`);
-if (fs.existsSync(file) && process.env.REPLACE !== '1') {
-  console.log(`${edition.id} 회차가 이미 있어요 — 덮어쓰지 않아요`);
+if (fs.existsSync(editionFile) && process.env.REPLACE !== '1') {
+  console.log(`${id} 회차(요약본)가 이미 있어요 — 아무 것도 하지 않아요`);
   process.exit(0);
 }
-fs.mkdirSync(EDITIONS_DIR, { recursive: true });
-fs.writeFileSync(file, `${JSON.stringify(edition, null, 2)}\n`);
-console.log(`${edition.id} 회차 저장: 지역 ${edition.regions.length}개, 항목 ${edition.regions.reduce((n, r) => n + r.items.length, 0)}건`);
+
+let regions;
+if (fallback && fs.existsSync(rawFile)) {
+  regions = JSON.parse(fs.readFileSync(rawFile, 'utf8')).regions;
+} else {
+  regions = await collect();
+  const total = Object.values(regions).reduce((n, r) => n + r.items.length, 0);
+  if (total < 20) { console.error(`수집된 기사가 ${total}건뿐이에요. 저장하지 않아요.`); process.exit(1); }
+  fs.mkdirSync(RAW_DIR, { recursive: true });
+  fs.writeFileSync(rawFile, `${JSON.stringify({ id, collectedAt: new Date().toISOString(), regions }, null, 1)}\n`);
+  console.log(`원본 저장: data/raw/${id}.json (${total}건)`);
+  // 오래된 원본은 정리 (최근 6개만 유지)
+  const olds = fs.readdirSync(RAW_DIR).filter((x) => x.endsWith('.json')).sort().slice(0, -6);
+  for (const o of olds) fs.unlinkSync(path.join(RAW_DIR, o));
+}
+
+if (fallback) {
+  // 요약본이 없을 때만: 제목·소개문만으로 대신 만든 회차
+  const edition = buildEdition(regions);
+  if (!edition.regions.length) { console.error('회차를 만들 지역이 없어요'); process.exit(1); }
+  fs.mkdirSync(EDITIONS_DIR, { recursive: true });
+  fs.writeFileSync(editionFile, `${JSON.stringify(edition, null, 2)}\n`);
+  console.log(`${edition.id} 대체 회차(제목만) 저장: 지역 ${edition.regions.length}개`);
+}
