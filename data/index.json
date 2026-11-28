@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-28T12:57:58.968Z",
+  "updatedAt": "2026-11-28T13:17:15.230Z",
   "latest": "2026-11-28-pm",
   "editions": [
     {
@@ -9,9 +9,9 @@
       "slot": "pm",
       "title": "11월 28일 저녁 헤드라인",
       "headline": [
-        "🇰🇷 1958년부터 35년간 오페라 주역…원로 테너 안형일 별세",
-        "🇺🇸 Explosion at a school in eastern Afghanistan kills 7, wounds more than 90",
-        "🇯🇵 How spy drama ‘Vivant’ set off a furor — and a fervor"
+        "🇰🇷 박홍근 \"법사위가 상원처럼 군림\"…서영교 \"장관은 겸손해야\"",
+        "🇰🇷 판교신도시 개발 추진한 김윤기 전 건교부 장관 별세",
+        "🇺🇸 Week in Politics: Trump's Thanksgiving messaging; Congress' pre-holiday to-do list"
       ],
       "regions": [
         "KR",
@@ -24,7 +24,7 @@
         "IN",
         "GLOBAL"
       ],
-      "itemCount": 39,
+      "itemCount": 54,
       "path": "data/editions/2026-11-28-pm.json"
     }
   ]
