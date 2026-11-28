@@ -1,0 +1,1066 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-28-pm",
+  "date": "2026-11-28",
+  "slot": "pm",
+  "generatedAt": "2026-11-28T22:17:15+09:00",
+  "title": "11월 28일 저녁 헤드라인",
+  "headline": [
+    "🇰🇷 박홍근 \"법사위가 상원처럼 군림\"…서영교 \"장관은 겸손해야\"",
+    "🇰🇷 판교신도시 개발 추진한 김윤기 전 건교부 장관 별세",
+    "🇺🇸 Week in Politics: Trump's Thanksgiving messaging; Congress' pre-holiday to-do list",
+    "🇺🇸 Can luxury save Macy's?",
+    "🇺🇸 Back as Nvidia CEO, Jensen Huang heads to Washington for tough questions"
+  ],
+  "regions": [
+    {
+      "code": "KR",
+      "name": "대한민국",
+      "flag": "🇰🇷",
+      "summary": "대한민국 주요 기사 12건 (정치 3 · 경제 3 · IT·과학 2 · 사회 2 · 국제 2) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "kr-1",
+          "topic": "politics",
+          "title": "박홍근 \"법사위가 상원처럼 군림\"…서영교 \"장관은 겸손해야\"",
+          "summary": "(서울=연합뉴스) 최평천 기자 = 더불어민주당 소속 박홍근 기획예산처 장관과 서영교 국회 법제사법위원장이 국회 법제사법위 전체회의에 이어 SNS...",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128048900001",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-2",
+          "topic": "economy",
+          "title": "판교신도시 개발 추진한 김윤기 전 건교부 장관 별세",
+          "summary": "(서울=연합뉴스) 이충원 기자 = 김대중 정부에서 판교신도시 건설 추진을 본격화한 김윤기(金允起) 전 건설교통부 장관이 27일 오후 5시 22분...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128046500505",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-3",
+          "topic": "tech",
+          "title": "'등골 브레이커'는 옛말?…요즘 10대들 꽂힌 패딩 정체 [키워드랩]",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "한국경제",
+              "url": "https://www.hankyung.com/article/202611274908g",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-4",
+          "topic": "society",
+          "title": "제주서 강풍피해 속출…패널에 사람 깔리고 항공·해상교통 차질(종합)",
+          "summary": "(제주=연합뉴스) 박지호 기자 = 강풍특보가 내려진 제주에서 건축용 패널에 깔려 부상자가 발생하는 등 인명과 시설물 피해가 이어졌고, 항공·해상...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "사회"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128046451056",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-5",
+          "topic": "world",
+          "title": "추수감사절 기적…뉴욕 강풍탓 발묶인 거리악단에 5억원 성금",
+          "summary": "(서울=연합뉴스) 김승욱 기자 = 미국 뉴욕의 추수감사절 거리 행진인 '메이시스 퍼레이드'가 강풍 예보 탓에 100년 역사에서 처음으로 일정이 ...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128051700009",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-6",
+          "topic": "politics",
+          "title": "美 \"韓핵잠 검증협상은 IAEA 권한\"…中 '회원국 합의' 주장 반박",
+          "summary": "(서울=연합뉴스) 권수현 기자 = 미국 정부가 한국의 핵추진잠수함(핵잠) 도입을 위한 핵물질 안전조치 협의에 국제원자력기구(IAEA) 전체 회원...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128048100504",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-7",
+          "topic": "economy",
+          "title": "상파울루 국제관계국장 \"기술, 고립 아닌 연결·성장 위한 도구\"",
+          "summary": "(상파울루=연합뉴스) 성도현 기자 = \"기술은 사람을 대체하거나 사람을 주변 현실에서 고립시키는 도구가 아니라, 타인과 관계를 맺도록 연결하고 ...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128043800371",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-8",
+          "topic": "tech",
+          "title": "아이가 낯선 어른과 채팅?…초등생 부모들 불안 커진 이유 [홍민성의 테토남]",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "한국경제",
+              "url": "https://www.hankyung.com/article/202611273825g",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-9",
+          "topic": "society",
+          "title": "AI 부정행위 우려 속 경북대 논술고사…감시 강화에도 불안 여전(종합)",
+          "summary": "(대구=연합뉴스) 최수호 기자 = 인공지능(AI) 등을 이용한 부정행위로 국가자격 시험 등 관리에 비상이 걸린 상황에서 28일 대구 거점국립대인...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "사회"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128023351053",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-10",
+          "topic": "world",
+          "title": "대만 지방선거 개표 중반 박빙…野국민당, 민진당에 근소 우세",
+          "summary": "(베이징·타이베이=연합뉴스) 정성조 특파원 김철문 통신원 = 28일 대만 지방선거에서 야당인 중국국민당(국민당)이 개표 중반 박빙 구도 속 집권...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128050900083",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-11",
+          "topic": "politics",
+          "title": "李대통령, '일부 병원 성형 후기 조작' 적발에 \"중대 불법행위\"",
+          "summary": "(서울=연합뉴스) 황윤기 기자 = 이재명 대통령은 28일 일부 병원의 '후기 조작' 행태에 관해 \"개인정보를 악용해 국민을 속이고 부당한 이익을...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128048200001",
+              "lang": "ko"
+            }
+          ]
+        },
+        {
+          "id": "kr-12",
+          "topic": "economy",
+          "title": "韓총리, 삼전·하이닉스에 \"채용 많이 해달라\"…청년간담회도",
+          "summary": "(서울=연합뉴스) 황윤기 기자 = 한성숙 국무총리는 28일 청년들의 취업 현실을 점검하고 삼성전자·SK하이닉스 등 대기업 관계자들에게 채용을 늘...",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "연합뉴스",
+              "url": "https://www.yna.co.kr/view/AKR20261128043500001",
+              "lang": "ko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "name": "미국",
+      "flag": "🇺🇸",
+      "summary": "미국 주요 기사 12건 (정치 3 · 경제 3 · IT·과학 3 · 국제 3) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "us-1",
+          "topic": "politics",
+          "title": "Week in Politics: Trump's Thanksgiving messaging; Congress' pre-holiday to-do list",
+          "summary": "We look at President Trump's messaging over Thanksgiving, as well as what Congress can get done before the holidays.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/nx-s1-6052169/week-in-politics-trumps-thanksgiving-messaging-congress-pre-holiday-to-do-list",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-2",
+          "topic": "economy",
+          "title": "Can luxury save Macy's?",
+          "summary": "This week's celebration of Macy's 100th Thanksgiving parade finds the department store at a turning point. After years of losing sales, the retailer is reimagining itself — as a higher-end destination.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6026486/macys-tries-to-reinvent-with-luxury",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-3",
+          "topic": "tech",
+          "title": "Back as Nvidia CEO, Jensen Huang heads to Washington for tough questions",
+          "summary": "Jensen Huang, NVIDIA's newly reinstated CEO, will be in Washington, D.C., next week facing tough questions from lawmakers.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/nx-s1-6055695/back-as-nvidia-ceo-jensen-huang-heads-to-washington-for-tough-questions",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-4",
+          "topic": "world",
+          "title": "Explosion at a school in eastern Afghanistan kills 7, wounds more than 90",
+          "summary": "Local officials said the blast appeared to have originated in a neighboring depot for mining explosives.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/nx-s1-6056284/explosion-school-eastern-afghanistan",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-5",
+          "topic": "politics",
+          "title": "New wave of Democratic attorneys general may reshape the justice system",
+          "summary": "The Democratic victories could have major effects for what alleged crimes are investigated, lawsuits filed and court cases heard across the U.S.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/g-s1-155837/democratic-attorneys-general-justice-system-texas",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-6",
+          "topic": "economy",
+          "title": "The strategy behind those Black Friday deals",
+          "summary": "We get the inside scoop in how a Black Friday discount deal comes together.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6054055/the-strategy-behind-those-black-friday-deals",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-7",
+          "topic": "tech",
+          "title": "Did AI just solve a century-old math problem? Mathematicians are trying to find out",
+          "summary": "Mathematicians are trying to work out whether AI really has solved a century old problem.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/28/nx-s1-6053019/did-ai-just-solve-a-century-old-math-problem-mathematicians-are-trying-to-find-out",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-8",
+          "topic": "world",
+          "title": "Sudan's lost generation: War is stealing the childhood of millions",
+          "summary": "Three years of war have stolen childhood from millions of children in Sudan, leaving them displaced, hungry and fighting for survival instead of learning in a classroom.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6053049/sudans-lost-generation-war-is-stealing-a-generation-of-childhood",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-9",
+          "topic": "politics",
+          "title": "With Abbott out, what does the future look like for data centers in Texas?",
+          "summary": "Texas has been one of the most welcoming states for data centers, but that might change with a new governor coming in.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "정치"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6048749/with-abbott-out-what-does-the-future-look-like-for-data-centers-in-texas",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-10",
+          "topic": "economy",
+          "title": "U.S. Judge rules FCC violated ABC's free speech rights to please Trump",
+          "summary": "A federal judge has blocked the Trump administration from moving to review all local broadcast licenses held by ABC. The stations air in six of the largest U.S. markets.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/26/nx-s1-6000576/fcc-disney-abc-first-amendment-trump-brendan-carr",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-11",
+          "topic": "tech",
+          "title": "Screen-free tweens try their hand at Dungeons & Dragons",
+          "summary": "Some parents, fed up with screens, have found an analog oasis in the role-playing game invented in the 1970s.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6042445/screen-free-tweens-try-their-hand-at-dungeons-dragons",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "us-12",
+          "topic": "world",
+          "title": "French cinema star Gérard Depardieu ordered to stand trial for rape and sexual assault",
+          "summary": "The case has become one of the most prominent in France's reckoning with sexual violence, as the #MeToo movement has faced resistance in the country, particularly in the arts.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "NPR",
+              "url": "https://www.npr.org/2026/11/27/nx-s1-6055559/gerard-depardieu-trial-rape-france",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "JP",
+      "name": "일본",
+      "flag": "🇯🇵",
+      "summary": "일본 주요 기사 4건 (기타 4) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "jp-1",
+          "topic": "other",
+          "title": "How spy drama ‘Vivant’ set off a furor — and a fervor",
+          "summary": "The second season of the hit spy thriller from TBS proves the whole isn't always greater than the sum of its parts.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/culture/2026/11/28/tv-streaming/vivant-season-2-controversies/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-2",
+          "topic": "other",
+          "title": "Number of births in Japan rises for the first time in 11 years",
+          "summary": "The rise may have reflected an increase in the number of marriages in 2024 after years of decline during the COVID-19 pandemic.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/news/2026/11/28/japan/society/japan-births-rise/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-3",
+          "topic": "other",
+          "title": "WWE star Bronson Reed dies at 38",
+          "summary": "The company paid tribute to Reed, calling him a \"larger-than-life figure in WWE.\"",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/sports/2026/11/28/more-sports/bronson-reed-wwe-wrestling/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "jp-4",
+          "topic": "other",
+          "title": "Japan expected to push for debate on nuclear subs in security document revisions",
+          "summary": "Japan is expected to say in the documents due by the year-end that it will \"begin considering and reach a conclusion\" on the controversial issue.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Japan Times",
+              "url": "https://www.japantimes.co.jp/news/2026/11/28/japan/japan-nuclear-submarines-security-documents/",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CN",
+      "name": "중국·대만·홍콩",
+      "flag": "🇨🇳",
+      "summary": "중국·대만·홍콩 주요 기사 4건 (기타 4) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "cn-1",
+          "topic": "other",
+          "title": "16 years after Sandy Hook school massacre, US court case targets assault weapons ban",
+          "summary": "In a country of frequent ⁠mass shootings, the December 14, 2012, massacre at Sandy Hook Elementary School in Newtown, Connecticut, has stood out. A ⁠lone gunman fired 154 rounds in under five minutes, killing 20 first-grade schoolchildren, aged six and seven, and six adults. Connecticut lawmakers quickly responded to the deadliest junior school shooting in US history by extending the state’s ban on what it refers to…",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/world/united-states-canada/article/3376146/16-years-after-sandy-hook-school-massacre-us-court-case-targets-assault-weapons-ban",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-2",
+          "topic": "other",
+          "title": "KMT extends 21-year grip on New Taipei as Lee Shu-chuan beats DPP’s Su Chiao-hui",
+          "summary": "Kuomintang candidate Lee Shu-chuan won the New Taipei City mayoral election on Saturday, extending the party’s 21-year leadership in Taiwan’s most populous municipality, which has more than 4 million residents. Democratic Progressive Party lawmaker Su Chiao-hui conceded defeat in the key electoral battleground, which serves as a barometer of the island’s political direction. The KMT has maintained leadership in the…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/china/politics/article/3376145/kmt-extends-21-year-grip-new-taipei-lee-shu-chuan-beats-dpps-su-chiao-hui",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-3",
+          "topic": "other",
+          "title": "Taiwan elections: KMT’s Johnny Chiang loses key Taichung race in possible 2028 blow",
+          "summary": "The Kuomintang suffered a major setback in central Taiwan’s key battleground of Taichung on Saturday as Johnny Chiang Chi-chen lost to Democratic Progressive Party legislator Ho Hsin-chun in the mayoral race. The defeat ends eight years of rule by Taiwan’s main opposition party under outgoing mayor Lu Shiow-yen. Widely viewed as Taiwan’s main swing seat and a key general electoral bellwether, Taichung has alternated…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/china/politics/article/3376143/taiwan-elections-kmts-johnny-chiang-loses-key-taichung-race-possible-2028-blow",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "cn-4",
+          "topic": "other",
+          "title": "UK charity honouring WWII veteran to be disbanded after financial controversy",
+          "summary": "A charity set up by the family of a British World War II veteran who raised tens of millions of pounds by walking laps of his garden during the coronavirus pandemic has applied to be disbanded, two years after the country’s charity watchdog found “repeated” financial misconduct. An application to have the charitable company created in honour of Captain Tom Moore removed appeared on Friday on the register of Companie…",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "SCMP",
+              "url": "https://www.scmp.com/news/world/europe/article/3376142/uk-charity-honouring-wwii-veteran-be-disbanded-after-financial-controversy",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "EU",
+      "name": "유럽연합·독일·프랑스",
+      "flag": "🇪🇺",
+      "summary": "유럽연합·독일·프랑스 주요 기사 5건 (기타 5) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "eu-1",
+          "topic": "other",
+          "title": "Azerbaijan's opposition leader Ali Karimli: A year behind bars",
+          "summary": "Azerbaijani opposition leader Ali Karimli has been in prison since November 2025. Authorities accuse him of attempting to seize power by force, but human rights groups say his prosecution is politically motivated.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/azerbaijan-s-opposition-leader-ali-karimli-a-year-behind-bars/a-80036095?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-2",
+          "topic": "other",
+          "title": "Ukraine's expertise comes in handy for international drone alliances",
+          "summary": "Ukrainian expertise merged with Europe's financial and industrial clout: Germany and other countries are expanding drone partnerships with Ukraine and reshaping Europe's defense industry in the process.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/ukraine-s-expertise-comes-in-handy-for-international-drone-alliances/a-80075472?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-3",
+          "topic": "other",
+          "title": "AI data centers in space: Millions of satellites and so many unknowns",
+          "summary": "SpaceX is seeking approval to launch a million satellites into orbit to build AI data centers in space. Experts are skeptical, citing many unanswered questions. At the top of the list: Who owns the sky?",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/ai-data-centers-in-space-millions-of-satellites-and-so-many-unknowns/a-80080166?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-4",
+          "topic": "other",
+          "title": "As Spain votes, what could change for Europe?",
+          "summary": "Spain votes on Sunday. A loss for Pedro Sanchez and a shift to the right in Madrid could affect how one of the EU's largest countries approaches migration, defense and the war in Gaza.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "DW",
+              "url": "https://www.dw.com/en/as-spain-votes-what-could-change-for-europe/a-80035381?maca=en-rss-en-all-1573-rdf",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "eu-5",
+          "topic": "other",
+          "title": "Marches planned in France amid alarming global statistics on women’s safety",
+          "summary": "Cynthia Illouz, founder of French-American News media @thewomensvoices, is our guest.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "France 24",
+              "url": "https://www.france24.com/en/marches-planned-in-france-amid-alarming-global-statistics-on-women-s-safety",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GB",
+      "name": "영국",
+      "flag": "🇬🇧",
+      "summary": "영국 주요 기사 4건 (기타 4) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "gb-1",
+          "topic": "other",
+          "title": "Millions lose access to benefits and pensions services after 'cyber incident'",
+          "summary": "The Department for Work and Pensions says some of its services were taken offline as a precaution.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c8wy5p6pv2e2o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-2",
+          "topic": "other",
+          "title": "Catherine's emotional cancer documentary strips away the stiff upper lip",
+          "summary": "The Princess of Wales has made a documentary, Heal, describing her cancer experience in her own words.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c6zxvy9j0wpjo?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-3",
+          "topic": "other",
+          "title": "Pharmacies get new powers to swap prescriptions during shortages",
+          "summary": "If a medicine is out of stock, staff can offer the same drug in a different strength or form, like a capsule instead of a pill.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/cw5y1pelzm8ro?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "gb-4",
+          "topic": "other",
+          "title": "Set time aside for children to read for pleasure, schools to be told",
+          "summary": "The government says its new cirriculum hopes to reverse declining literacy rates and combat \"mindless scrolling\".",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/c65y1vp4ndqjo?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ME",
+      "name": "중동",
+      "flag": "🌍",
+      "summary": "중동 주요 기사 4건 (기타 4) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "me-1",
+          "topic": "other",
+          "title": "Norse Atlantic ends flights: How Iran war continues to batter aviation",
+          "summary": "The Norwegian budget carrier is the latest airline to fold under fuel costs driven by the Strait of Hormuz crisis.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/28/norse-atlantic-ends-flights-how-iran-war-continues-to-batter-aviation?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-2",
+          "topic": "other",
+          "title": "Taiwan opposition party wins re-election in Taipei mayoral race",
+          "summary": "Voters across Taiwan have cast ballots for mayors, council members and other local leaders.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/28/taiwan-opposition-party-wins-re-election-in-taipei-mayoral-race?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-3",
+          "topic": "other",
+          "title": "Tarantulas, scorpions and more found in luggage at Peru airport",
+          "summary": "제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/video/newsfeed/2026/11/28/tarantulas-scorpions-and-more-found-in-luggage-at-peru-airport?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "me-4",
+          "topic": "other",
+          "title": "Manchester United vs Brentford LIVE: Premier League",
+          "summary": "Follow updates with build-up and team news coverage from our live text commentary stream as Bruno Fernandes headlines.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/sports/liveblog/2026/11/28/manchester-united-vs-brentford-live-premier-league?traffic_source=rss",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "IN",
+      "name": "인도·남아시아",
+      "flag": "🇮🇳",
+      "summary": "인도·남아시아 주요 기사 4건 (기타 4) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "in-1",
+          "topic": "other",
+          "title": "Delimitation Bill LIVE: 'The number 850 represents murder of democracy,' says Rahul; DMK announces…",
+          "summary": "INDIA bloc vows to oppose the delimitation push, while the ruling NDA is confident of passing the Bills",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/delimitation-bill-special-parliament-session-india-bloc-meeting-opposition-bjp-live-updates-november-28-2026/article71753535.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-2",
+          "topic": "other",
+          "title": "Teachers’ body seeks restoration of 40% quota in Junior Lecturer posts",
+          "summary": "NTA says experienced School Assistants with higher qualifications are being denied adequate promotional opportunities; seeks review of legal hurdles",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/andhra-pradesh/teachers-body-seeks-restoration-of-40-quota-in-junior-lecturer-posts/article71753772.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-3",
+          "topic": "other",
+          "title": "Supreme Court clears way for Hockey India elections, restores Odisha’s membership",
+          "summary": "A Bench of Justices K.V. Viswanathan and Arun Palli, while setting aside the Orissa HC orders staying the elections, also directed continuation of Hockey Odisha as a permanent member and recalled the two show-cause notices issued to it",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/supreme-court-clears-way-for-hockey-india-election-on-december-5-sets-aside-orissa-hc-orders/article71754025.ece",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "in-4",
+          "topic": "other",
+          "title": "Telangana CM Revanth Reddy rushes to Delhi with delimitation exercise and women’s reservation bill…",
+          "summary": "Telangana CM said that the increased seats will ensure government formation at the Centre even without the support of the southern States, thus reducing their political clout in New Delhi",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [],
+          "sources": [
+            {
+              "name": "The Hindu",
+              "url": "https://www.thehindu.com/news/national/telangana/telangana-cm-revanth-reddy-rushes-to-delhi-with-delimitation-exercise-and-womens-reservation-bill-gaining-ground/article71754385.ece",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GLOBAL",
+      "name": "글로벌",
+      "flag": "🌐",
+      "summary": "글로벌 주요 기사 5건 (국제 2 · IT·과학 2 · 경제 1) — 자동 수집 헤드라인",
+      "items": [
+        {
+          "id": "global-1",
+          "topic": "world",
+          "title": "Argentina's bid to stop Falklands oil drilling rejected",
+          "summary": "A joint venture between UK-Israeli companies is set to start exploring for oil and gas, but Argentina sought to block it as part of its claim to sovereignty.",
+          "importance": 2,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "BBC World",
+              "url": "https://www.bbc.co.uk/news/articles/c84gnq3qq9rno?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-2",
+          "topic": "tech",
+          "title": "2026 Kindle Paperwhite review: Page-turn buttons are back, for a price",
+          "summary": "Kindles are getting costlier faster than they're getting better.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "Ars Technica",
+              "url": "https://arstechnica.com/gadgets/2026/11/2026-kindle-paperwhite-review-page-turn-buttons-are-back-for-a-price/",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-3",
+          "topic": "economy",
+          "title": "Faisal Islam: Why Trump's new tariffs are less of a threat",
+          "summary": "Other countries have rerouted trade in response to his first tariff salvo, now they are looking beyond Trump's tenure.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "경제"
+          ],
+          "sources": [
+            {
+              "name": "BBC Business",
+              "url": "https://www.bbc.co.uk/news/articles/c6r7g4e3yep1o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-4",
+          "topic": "world",
+          "title": "Two staff killed in Israeli strike on Gaza medical clinic, MSF says",
+          "summary": "The Israeli military says it targeted \"Hamas terrorists\" in the strike which has been condemned by the World Health Organization.",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "국제"
+          ],
+          "sources": [
+            {
+              "name": "BBC World",
+              "url": "https://www.bbc.co.uk/news/articles/cm5y10yydln3o?at_medium=RSS&at_campaign=rss",
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "id": "global-5",
+          "topic": "tech",
+          "title": "The best Black Friday deals Ars could find",
+          "summary": "Perhaps some commerce, to help all the Turkey Day leftovers go down easier?",
+          "importance": 1,
+          "confidence": "medium",
+          "publishedAt": "2026-11-28",
+          "tags": [
+            "IT·과학"
+          ],
+          "sources": [
+            {
+              "name": "Ars Technica",
+              "url": "https://arstechnica.com/shopping/2026/11/the-best-black-friday-deals-ars-could-find/",
+              "lang": "en"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "자동 수집한 RSS 헤드라인이에요. 번역과 요약은 없고 원문 언어 그대로예요. 사실 확인은 출처 링크에서 해 주세요."
+}

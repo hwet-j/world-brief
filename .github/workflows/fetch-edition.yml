@@ -1,0 +1,60 @@
+name: Fetch headlines
+# 한국·미국 공개 RSS 를 모아 data/raw/<회차>.json 에 올린다 (AI·API 비용 없음).
+# 요약본(data/editions)은 Claude 세션이 이 원본을 읽어 만든다. 요약본이 늦으면 07:00·19:00 에 제목만으로 대신 만든다.
+#   수집: 매일 한국 시간 06:10, 18:10 (UTC 21:10, 09:10)   /   대체: 07:00, 19:00 (UTC 22:00, 10:00)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'collect(원본 수집) 또는 fallback(요약본이 없을 때 제목만 회차)'
+        type: choice
+        options: [collect, fallback]
+        default: collect
+      replace:
+        description: '같은 회차가 있어도 덮어쓰기 (시험용)'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '10 21 * * *'
+    - cron: '10 9 * * *'
+    - cron: '0 22 * * *'
+    - cron: '0 10 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-edition
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm test
+      - name: Collect or fallback
+        env:
+          REPLACE: ${{ inputs.replace && '1' || '0' }}
+          SCHEDULE: ${{ github.event.schedule }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          mode="${MODE:-}"
+          if [ -z "$mode" ]; then
+            case "$SCHEDULE" in '0 22 * * *'|'0 10 * * *') mode=fallback;; *) mode=collect;; esac
+          fi
+          echo "mode=$mode"
+          if [ "$mode" = fallback ]; then node scripts/fetch-rss.mjs --fallback; else node scripts/fetch-rss.mjs; fi
+      - run: node scripts/build-index.mjs
+      - run: node scripts/validate.mjs
+      - name: Commit
+        run: |
+          if [ -z "$(git status --porcelain data)" ]; then echo "변경 없음"; exit 0; fi
+          git config user.name "정회창"
+          git config user.email "81364742+hwet-j@users.noreply.github.com"
+          git add -A data
+          git commit -m "data: 기사 원본 수집 ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git pull --rebase origin main
+          git push

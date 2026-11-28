@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-28T13:17:15.230Z",
+  "latest": "2026-11-28-pm",
+  "editions": [
+    {
+      "id": "2026-11-28-pm",
+      "date": "2026-11-28",
+      "slot": "pm",
+      "title": "11월 28일 저녁 헤드라인",
+      "headline": [
+        "🇰🇷 박홍근 \"법사위가 상원처럼 군림\"…서영교 \"장관은 겸손해야\"",
+        "🇰🇷 판교신도시 개발 추진한 김윤기 전 건교부 장관 별세",
+        "🇺🇸 Week in Politics: Trump's Thanksgiving messaging; Congress' pre-holiday to-do list"
+      ],
+      "regions": [
+        "KR",
+        "US",
+        "JP",
+        "CN",
+        "EU",
+        "GB",
+        "ME",
+        "IN",
+        "GLOBAL"
+      ],
+      "itemCount": 54,
+      "path": "data/editions/2026-11-28-pm.json"
+    }
+  ]
+}
