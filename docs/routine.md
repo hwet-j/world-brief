@@ -1,31 +1,29 @@
-# 예약 작업(Claude Code) 수집·요약 절차
+# 예약 작업(Claude Code) 요약 절차
 
-이 문서는 **예약된 Claude Code 세션**이 한 회차의 브리핑을 만들 때 따르는 절차와 편집 원칙이다. 앱은 API 를 쓰지 않고, 이 저장소의 JSON 만 읽는다.
+**역할 분담**
+- 깃허브 액션(`fetch-edition.yml`)이 인터넷에서 한국·미국 공개 RSS 를 모아 `data/raw/<id>.json`(원본 기사 목록)을 올린다. 매일 KST 06:10 · 18:10.
+- **이 예약 세션은 뉴스 사이트에 접속하지 않는다.** 저장소에 올라온 원본을 읽어 한국어로 요약한 회차(`data/editions/<id>.json`)를 만들어 올린다. 매일 KST 06:35 · 18:35.
+- 앱은 API 를 쓰지 않고 `data/editions` 와 `data/index.json` 만 읽는다.
+- 07:00 · 19:00 까지 요약본이 없으면 액션이 원본의 제목·소개문만으로 대신 회차를 만든다(이미 요약본이 있으면 건드리지 않음).
 
 ## 절차
-1. **저장소 준비**: `add_repo`(hwet-j/world-brief, access=push) → 안내된 대로 `git clone --depth 1 https://github.com/hwet-j/world-brief /home/user/world-brief` → `register_repo_root`. git 사용자 설정: `user.name "정회창"`, `user.email "81364742+hwet-j@users.noreply.github.com"`. **커밋 메시지에 Claude/Co-Authored-By/세션 문구를 넣지 않는다** (사용자 계정으로만 기록).
-2. **회차 결정**: 한국 시간(KST, UTC+9) 현재 날짜 `YYYY-MM-DD` 와 시각. 12시 이전이면 `am`(아침 6시 회차), 이후면 `pm`(저녁 6시 회차). 예약은 매일 KST 06:13 · 18:13 에 실행된다. id = `YYYY-MM-DD-am|pm`. 이미 `data/editions/<id>.json` 이 있으면 **덮어쓰지 말고** 종료한다(중복 실행 방지).
-3. **이전 회차 확인** (pm 회차는 am 이후 약 12시간의 새 소식 위주로 구성한다): `data/index.json` 의 최신 회차 파일을 읽어 이미 다룬 이슈와 제목을 파악한다 → 같은 이슈는 새로운 진전이 있을 때만 `isUpdate: true` 로 다시 다루고, 아니면 건너뛴다.
-4. **수집**(WebSearch / WebFetch): 지역(`docs/regions.md`)마다 최근 24~36시간 안의 핵심 이슈를 찾는다. 검색은 영어와 현지어를 섞고, 지역마다 권장 출처를 우선한다.
-   - 항목은 지역당 3~5개(중요한 날은 최대 6개), 정치·경제·사회·국제·기술·안보·에너지·기후 등에서 **중요도 순**으로 고른다. 연예·가십·스포츠는 국가적 사건이 아니면 제외.
-   - 각 항목은 **가능하면 서로 다른 출처 2곳 이상**으로 교차 확인하고 실제로 열어 본(WebFetch) 기사만 `sources` 에 넣는다. 출처 URL 은 실제로 접속한 주소여야 하며 **지어내지 않는다**.
-   - 1곳만 확인되면 `confidence: "medium"`, 발표 직후·추정·루머성이면 `low` 로 두고 요약에 "미확인"임을 밝힌다. 2곳 이상이면 `high`.
-5. **작성**(한국어, `docs/schema.md` 스키마):
-   - 요약은 **자신의 말로** 2~4문장. 기사 문장을 그대로 복사하지 않는다(15단어 이상 연속 복사 금지). 인용은 짧게, 출처 명시.
-   - 숫자·날짜·고유명사는 출처와 대조해 정확히. 확실하지 않은 숫자는 쓰지 않는다.
-   - 정치적으로 갈리는 사안은 각 입장을 균형 있게 서술하고 평가어("충격적", "참담")를 피한다. 관영 매체 발표는 "관영 발표"로 표시.
-   - `headline` 3~5줄(전 세계 기준 가장 중요한 순), 지역 `summary` 1~2문장, `watchlist` 앞으로 일주일 내 주목할 일정(확실한 것만, 최대 8개).
-   - 지역 자료를 못 구했으면 그 지역은 항목을 줄이거나 빼고 `notes` 에 이유를 적는다. **채우려고 지어내지 않는다.**
-6. **검증**: `node scripts/validate.mjs` 가 통과해야 한다(실패 시 메시지대로 고쳐 다시). 파일을 `data/editions/<id>.json` 으로 저장한 뒤 `node scripts/build-index.mjs`.
-7. **게시**: `git add data && git commit -m "data: <YYYY-MM-DD> <am|pm> 브리핑"` → `git push origin main` (HTTP 429 면 5초 뒤 재시도, 거부되면 `git pull --rebase origin main` 후 다시). 앱은 push 즉시 새 데이터를 읽는다.
-8. **보고**: 마지막에 한 줄 요약(회차 id, 지역·항목 개수, 낮은 신뢰도 항목 수, 문제 있었던 점)을 남긴다.
+1. **저장소 준비**: `add_repo`(hwet-j/world-brief, access=push) → 안내된 대로 `git clone https://github.com/hwet-j/world-brief /home/user/world-brief` → `register_repo_root`. git: `user.name "정회창"`, `user.email "81364742+hwet-j@users.noreply.github.com"`. **커밋 메시지에 Claude/Co-Authored-By/세션 문구를 넣지 않는다.** `git pull origin main` 으로 최신 원본을 받는다.
+2. **회차 결정**: 한국 시간(KST, UTC+9) 기준 12시 이전이면 `am`, 이후면 `pm`. id = `YYYY-MM-DD-am|pm`. `data/raw/<id>.json` 이 없으면 아직 수집 전이다 → 5분 간격으로 최대 3번 `git pull` 후에도 없으면 파일을 만들지 말고 보고하고 종료한다. 이미 `data/editions/<id>.json` 이 있으면 **덮어쓰지 말고** 종료한다(단, 제목만 있는 대체 회차(`notes` 에 "제목만"/"자동 수집한 RSS 헤드라인")는 요약본으로 교체해도 된다).
+3. **후보 추리기**: `node scripts/candidates.mjs <id> --out /tmp/cands.json` — 여러 출처가 함께 다룬 기사, 최신, 소개문이 있는 기사를 우선해 분야별(정치·경제·IT·사회·국제)로 한국·미국 후보를 번호(KR0…, US0…)와 함께 출력한다.
+4. **요약**(한국어): 후보 소개문에 **있는 사실만** 쓴다. 지어내거나 소개문에 없는 숫자·인물·인과를 덧붙이지 않는다. 소개문이 비었거나 부족하면 제목에서 확실한 것만 쓰고 항목을 줄인다.
+   - 한국·미국 각 12~16개. 같은 사건을 다룬 후보는 `refs` 로 묶어 한 항목으로(출처가 서로 다른 2곳 이상이면 자동으로 confidence high). 다른 나라 후보는 쓰지 않는다. 정치·경제·IT·사회·국제를 골고루, 중요도 순.
+   - 영어 기사는 한국어로 번역·요약. 요약은 2~4문장, 원문 문장을 그대로 복사하지 않는다. 핵심 항목(importance 3)에는 `whyItMatters` 한 문장.
+   - 정치적으로 갈리는 사안은 각 입장을 균형 있게, 평가어("충격적", "참담")를 피한다. 이전 회차와 같은 이슈는 새 진전이 있을 때만(`isUpdate: true`).
+   - `headline` 3~5줄(한국·미국 합쳐 가장 중요한 순, 앞에 🇰🇷/🇺🇸), 지역 `summary` 1~2문장, 필요하면 `watchlist`(확실한 일정만), `notes` 한 줄.
+5. **조립·검증**: 요약을 `/tmp/picks.json` 으로 저장(형식은 `scripts/compose.mjs` 머리 주석) → `node scripts/compose.mjs /tmp/cands.json /tmp/picks.json` → `node scripts/build-index.mjs` → `node scripts/validate.mjs` 통과 확인.
+6. **게시**: `git add data && git commit -m "data: <YYYY-MM-DD> <am|pm> 브리핑"` → `git push origin main` (거부되면 `git pull --rebase origin main` 후 다시). 앱은 push 즉시 새 데이터를 읽는다.
+7. **보고**: 한 줄(회차 id, 지역·항목 수, 문제 있었던 점).
 
 ## 편집 원칙
-- 목적: 바쁜 사람이 5분 안에 세계 흐름을 파악하도록 돕는 것. 사실 > 맥락 > 전망 순서, 전망은 "…할 수 있다" 로 표시.
-- 선정 기준: 영향 범위(사람 수·경제 규모), 새로움, 후속 파급, 한국과의 관련성(가산점).
+- 목적: 바쁜 사람이 5분 안에 한국과 미국의 큰 흐름(정치·경제·IT)을 파악하도록 돕는 것. 사실 > 맥락 > 전망 순서, 전망은 "…할 수 있다".
 - 개인 비방·미확인 의혹·선정적 사건 사고 세부는 다루지 않는다. 의료·투자 조언을 하지 않는다.
-- 저작권: 기사 본문을 옮기지 않는다. 제목·핵심 사실을 재서술하고 링크로 연결한다.
+- 저작권: 기사 본문을 옮기지 않는다. 핵심 사실을 재서술하고 출처 링크로 연결한다.
 - 시각 표기는 KST. 외국 시각은 "현지 시각"을 명시.
 
 ## 실패했을 때
-수집·검증이 끝내 실패하면 파일을 만들지 말고(깨진 데이터를 올리지 않는다) 원인을 보고하고 종료한다. 앱은 마지막 정상 회차를 계속 보여 준다.
+원본이 없거나 검증이 끝내 실패하면 파일을 만들지 말고(깨진 데이터를 올리지 않는다) 원인을 보고하고 종료한다. 앱은 마지막 정상 회차를 계속 보여 준다.

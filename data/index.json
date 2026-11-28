@@ -1,30 +1,23 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-28T13:17:15.230Z",
+  "updatedAt": "2026-11-28T13:24:50.921Z",
   "latest": "2026-11-28-pm",
   "editions": [
     {
       "id": "2026-11-28-pm",
       "date": "2026-11-28",
       "slot": "pm",
-      "title": "11월 28일 저녁 헤드라인",
+      "title": "11월 28일 저녁 브리핑",
       "headline": [
-        "🇰🇷 박홍근 \"법사위가 상원처럼 군림\"…서영교 \"장관은 겸손해야\"",
-        "🇰🇷 판교신도시 개발 추진한 김윤기 전 건교부 장관 별세",
-        "🇺🇸 Week in Politics: Trump's Thanksgiving messaging; Congress' pre-holiday to-do list"
+        "🇰🇷 GS, 동해에 1.2GW급 AI 데이터센터 착공…이 대통령 \"AI 선도국으로\"",
+        "🇰🇷 김정은 방중 임박설…국정원 \"동향 주시\", 북중 정상회담 다음 달 초 유력 보도",
+        "🇺🇸 트럼프, 3분기 GDP 수정치를 \"가짜\"라며 상무부 조사 요구"
       ],
       "regions": [
         "KR",
-        "US",
-        "JP",
-        "CN",
-        "EU",
-        "GB",
-        "ME",
-        "IN",
-        "GLOBAL"
+        "US"
       ],
-      "itemCount": 54,
+      "itemCount": 30,
       "path": "data/editions/2026-11-28-pm.json"
     }
   ]
