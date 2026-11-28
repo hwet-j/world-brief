@@ -3,6 +3,11 @@ name: Fetch headlines
 # 매일 한국 시간 06:40, 18:40 (UTC 21:40, 09:40)
 on:
   workflow_dispatch:
+    inputs:
+      replace:
+        description: '같은 회차가 있어도 새로 만들어 덮어쓰기 (feeds 를 바꾼 뒤 시험용)'
+        type: boolean
+        default: false
   schedule:
     - cron: '40 21 * * *'
     - cron: '40 9 * * *'
@@ -23,6 +28,8 @@ jobs:
         with: { node-version: 22 }
       - run: npm test
       - run: node scripts/fetch-rss.mjs
+        env:
+          REPLACE: ${{ inputs.replace && '1' || '0' }}
       - run: node scripts/build-index.mjs
       - run: node scripts/validate.mjs
       - name: Commit
