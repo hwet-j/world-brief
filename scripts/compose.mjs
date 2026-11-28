@@ -2,8 +2,8 @@
 // 요약 결과(picks.json)와 후보 파일(candidates.mjs --out)을 합쳐 data/editions/<id>.json 을 만든다.
 //   node scripts/compose.mjs /tmp/cands.json /tmp/picks.json
 // picks.json: { "headline": ["…", …3~5개], "regions": { "KR": { "summary": "…", "items": [
-//   { "refs": ["KR14","KR22"], "title": "한국어 제목", "summary": "2~4문장", "importance": 1|2|3, "whyItMatters": "선택", "topic": "선택(기본: 첫 refs 의 분야)", "tags": ["선택", …] } ] } },
-//   "watchlist": [...], "notes": "선택" }
+//   { "refs": ["KR14","KR22"], "title": "한국어 제목", "summary": "2~4문장", "easy": "쉽게 말하면 한두 문장", "terms": [{"term":"용어","meaning":"쉬운 뜻"}], "importance": 1|2|3, "whyItMatters": "선택", "topic": "선택(기본: 첫 refs 의 분야)", "tags": ["선택", …] } ] } },
+//   "recap": "어제는 …, 오늘은 …", "watchlist": [...], "notes": "선택" }
 // refs 의 첫 번째가 대표 기사(발행일), 모든 refs 의 출처가 sources 에 들어간다 (서로 다른 출처 2곳 이상이면 confidence high).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -40,6 +40,8 @@ export function compose(cands, picks, now = new Date()) {
         confidence: names.size >= 2 ? 'high' : 'medium', tags, sources: sources.slice(0, 4),
       };
       if (it.whyItMatters) out.whyItMatters = it.whyItMatters;
+      if (it.easy) out.easy = it.easy;
+      if (it.terms?.length) out.terms = it.terms;
       if (/^\d{4}-\d{2}-\d{2}$/.test(arts[0].publishedAt ?? '')) out.publishedAt = arts[0].publishedAt;
       if (it.isUpdate) out.isUpdate = true;
       return out;
@@ -53,6 +55,7 @@ export function compose(cands, picks, now = new Date()) {
   };
   if (picks.watchlist?.length) edition.watchlist = picks.watchlist;
   if (picks.notes) edition.notes = picks.notes;
+  if (picks.recap) edition.recap = picks.recap;
   return edition;
 }
 

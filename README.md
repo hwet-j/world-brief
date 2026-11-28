@@ -17,6 +17,13 @@ Claude Code 예약 작업 ──(수집·요약·검증)──▶ data/editions/
 - `docs/regions.md` — 지역 목록과 권장 출처
 - `app/` — 안드로이드 앱(Expo)
 
+## 앱 (Android)
+`app/` 은 Expo(React Native) 앱입니다. **저장소의 JSON 을 읽어 화면 템플릿에 적용**할 뿐이라 별도 서버도, AI API 비용도 없습니다.
+- 오늘(최신 브리핑·지역별 요약) · 보관함(날짜별 회차, 검색) · 모아보기(주제별, 이슈 추적 타임라인, 지역 비교) · 저장(북마크+메모) · 설정
+- 오프라인 읽기(SQLite 캐시), 변경 없으면 304(ETag), 새 브리핑 표시, 선택 알림(매일 정한 시각)
+- 비공개 저장소로 바꾸면 설정에서 읽기 전용 GitHub 토큰을 입력하세요(기기 보안 저장소에만 저장)
+- 개발: `cd app && npm install && npm test`, APK 는 GitHub Actions(**Build Android APK**)가 `app/` 변경 시 빌드해 Releases 에 올립니다
+
 ## 데이터 직접 확인
 ```bash
 node scripts/validate.mjs        # 모든 회차 검증
