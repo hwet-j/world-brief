@@ -30,7 +30,7 @@ test('회차 객체가 스키마 검증을 통과한다 (KST 날짜·슬롯)', (
   assert.equal(ed.id, '2026-11-28-am');
   assert.deepEqual(validateEdition(ed, ed.id), []);
   assert.equal(ed.regions.length, 3);
-  assert.equal(ed.regions[0].items.length, 5); // 최대 5개
+  assert.equal(ed.regions[0].items.length, 7); // KR 은 최대 12개라 가진 7개 전부
   const pm = buildEdition({ KR: mk('KR', 1), US: mk('US', 1), GB: mk('GB', 1) }, new Date('2026-11-28T09:40:00Z')); // KST 18:40
   assert.equal(pm.id, '2026-11-28-pm');
   assert.deepEqual(validateEdition(pm, pm.id), []);
@@ -41,4 +41,16 @@ test('같은 링크 중복 제거, 설명이 없으면 안내 문구', () => {
   const ed = buildEdition({ KR: dup, US: mk('US', 1), GB: mk('GB', 1) }, new Date('2026-11-28T00:00:00Z'));
   assert.equal(ed.regions[0].items.length, 1);
   assert.match(ed.regions[0].items[0].summary, /제목만/);
+});
+
+test('한국·미국은 분야별로 많이(12개), 나머지는 5개, 분야 태그와 지역 요약', () => {
+  const many = (code, topics) => ({ name: code, flag: '🏳', items: Array.from({ length: 20 }, (_, i) => ({ title: `${code} ${i}`, link: `https://e.com/${code}/${i}`, description: '충분히 긴 설명이 들어 있는 문장이에요 여기.', source: 'S', lang: 'en', topic: topics[i % topics.length] })) });
+  const ed = buildEdition({ KR: many('KR', ['politics', 'economy', 'tech']), US: many('US', ['politics', 'economy']), GB: many('GB', ['world']) }, new Date('2026-11-28T00:00:00Z'));
+  assert.deepEqual(validateEdition(ed, ed.id), []);
+  const kr = ed.regions.find((r) => r.code === 'KR');
+  assert.equal(kr.items.length, 12);
+  assert.equal(ed.regions.find((r) => r.code === 'GB').items.length, 5);
+  assert.deepEqual(kr.items[0].tags, ['정치']);
+  assert.match(kr.summary, /정치 4/);
+  assert.match(ed.headline[0], /^🏳 KR/);
 });

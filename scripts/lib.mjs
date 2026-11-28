@@ -51,7 +51,7 @@ export function validateEdition(e, fileId) {
     if (!isStr(r.name, 30)) err(`${rp}.name`);
     if (!isStr(r.flag, 8)) err(`${rp}.flag`);
     if (!isStr(r.summary, 240)) err(`${rp}.summary 는 1~240자`);
-    if (!Array.isArray(r.items) || r.items.length < 1 || r.items.length > 6) return err(`${rp}.items 는 1~6개`);
+    if (!Array.isArray(r.items) || r.items.length < 1 || r.items.length > 16) return err(`${rp}.items 는 1~16개`);
     r.items.forEach((it, ii) => {
       const ip = `${rp}.items[${ii}]`;
       if (!it || typeof it !== 'object') return err(`${ip} 가 객체가 아니에요`);

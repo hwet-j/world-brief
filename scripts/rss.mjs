@@ -38,6 +38,11 @@ const cut = (s, n) => (s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`);
 const NOTE_ONLY = '제목만 모았어요. 자세한 내용은 출처 링크에서 확인하세요.';
 
 /** 지역별 피드 결과 → 회차 객체. feedsByRegion: { KR: { name, flag, items: [{title, link, description, source, lang, topic?}] } } */
+const TOPIC_LABEL = { politics: '정치', economy: '경제', society: '사회', world: '국제', tech: 'IT·과학', security: '안보', energy: '에너지', climate: '기후', health: '보건', culture: '문화', other: '기타' };
+/** 지역별 최대 항목 수: 비중이 큰 지역은 더 많이 */
+export const REGION_CAP = { KR: 12, US: 12 };
+const DEFAULT_CAP = 5;
+
 export function buildEdition(feedsByRegion, now = new Date()) {
   const kst = new Date(now.getTime() + 9 * 3_600_000);
   const date = kst.toISOString().slice(0, 10);
@@ -52,8 +57,8 @@ export function buildEdition(feedsByRegion, now = new Date()) {
       if (seen.has(it.link)) continue;
       seen.add(it.link);
       const n = items.length + 1;
-      if (n > 5) break;
-      const summary = it.description && it.description.length >= 20 && it.description !== it.title ? cut(it.description, 240) : NOTE_ONLY;
+      if (n > (REGION_CAP[code] ?? DEFAULT_CAP)) break;
+      const summary = it.description && it.description.length >= 20 && it.description !== it.title ? cut(it.description, 420) : NOTE_ONLY;
       items.push({
         id: `${code.toLowerCase()}-${n}`,
         topic: TOPICS.includes(it.topic) ? it.topic : 'other',
@@ -62,13 +67,23 @@ export function buildEdition(feedsByRegion, now = new Date()) {
         importance: n === 1 ? 2 : 1,
         confidence: 'medium',
         publishedAt: date,
-        tags: [],
+        tags: TOPIC_LABEL[it.topic] ? [TOPIC_LABEL[it.topic]] : [],
         sources: [{ name: it.source, url: it.link, lang: it.lang }],
       });
     }
-    regions.push({ code, name: r.name, flag: r.flag, summary: cut(`${r.name} 주요 기사 ${items.length}건 (자동 수집 헤드라인)`, 240), items });
+    const counts = {};
+    for (const it of items) counts[it.topic] = (counts[it.topic] ?? 0) + 1;
+    const parts = Object.entries(counts).map(([t, n]) => `${TOPIC_LABEL[t] ?? t} ${n}`).join(' · ');
+    regions.push({ code, name: r.name, flag: r.flag, summary: cut(`${r.name} 주요 기사 ${items.length}건 (${parts}) — 자동 수집 헤드라인`, 240), items });
   }
-  const headline = regions.slice(0, 5).map((r) => cut(`${r.flag} ${r.items[0].title}`, 120));
+  const lead = (r, topic) => r.items.find((x) => x.topic === topic) ?? r.items[0];
+  const kr = regions.find((r) => r.code === 'KR');
+  const us = regions.find((r) => r.code === 'US');
+  const picks = [kr && lead(kr, 'politics'), kr && lead(kr, 'economy'), us && lead(us, 'politics'), us && lead(us, 'economy'), us && lead(us, 'tech')].filter(Boolean);
+  const flagOf = (it) => regions.find((r) => r.items.includes(it))?.flag ?? '';
+  const uniq = [...new Set(picks)];
+  for (const r of regions) { if (uniq.length >= 3) break; if (!uniq.includes(r.items[0])) uniq.push(r.items[0]); }
+  const headline = uniq.slice(0, 5).map((it) => cut(`${flagOf(it)} ${it.title}`, 120));
   const [, m, d] = date.split('-');
   return {
     schemaVersion: 1,
